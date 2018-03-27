@@ -9,7 +9,7 @@ class SpreadsheetsController < ApplicationController
 
   def create
     @spreadsheet = Spreadsheet.new(spreadsheet_params)
-    @spreadsheet.spreadsheet_id =  @spreadsheet.spreadsheet_id.split('/')[5]
+    @spreadsheet.name =  @spreadsheet.name.split('/')[5]
     if @spreadsheet.save
       redirect_to spreadsheet_path(@spreadsheet)
     else
@@ -19,8 +19,8 @@ class SpreadsheetsController < ApplicationController
   end
 
   def show
-    @responses = @service.get_spreadsheet(@spreadsheet.spreadsheet_id)
-    @tabs = @service.get_spreadsheet(@spreadsheet.spreadsheet_id, fields: "sheets.properties").sheets
+    @responses = @service.get_spreadsheet(@spreadsheet.name)
+    @tabs = @service.get_spreadsheet(@spreadsheet.name, fields: "sheets.properties").sheets
     #讀tab名稱col名稱
   end
 
@@ -38,6 +38,6 @@ class SpreadsheetsController < ApplicationController
   end
 
   def spreadsheet_params
-    params.require(:spreadsheet).permit(:spreadsheet_id)
+    params.require(:spreadsheet).permit(:name)
   end
 end

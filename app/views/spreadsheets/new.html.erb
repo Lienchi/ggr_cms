@@ -1,7 +1,7 @@
 <div class="type-id">
   <%= form_for @spreadsheet do |f| %>
     <div class="form-group">
-      <%= f.text_field :spreadsheet_id, autofocus: true, placeholder: "Which spreadsheet ?" %>
+      <%= f.text_field :name, autofocus: true, placeholder: "Which spreadsheet ?" %>
     </div>
     <%= f.submit 'NEXT' %>
   <% end %>
