@@ -1,17 +1,33 @@
 class TagsController < ApplicationController
   before_action :set_spreadsheet, only:[:create, :destroy]
+  before_action :set_tag, only:[:update, :destroy]
 
   def create
-    @spreadsheet = Spreadsheet.find(params[:spreadsheet_id])
     @tag = @spreadsheet.tags.build(tag_params)
-    @tag.save!
-    redirect_to spreadsheet_path(@spreadsheet)
+    if @category.save
+      flash[:notice] = "tag creates successfully"
+      redirect_to spreadsheet_path(@spreadsheet)
+    else
+      @spreadsheets = Spreadsheet.all
+      @tags = Tag.all
+      render :spreadsheet_show
+    end
   end
 
+  def update
+  if @tag.update(tag_params)
+    redirect_to spreadsheet_path(@spreadsheet)
+    flash[:notice] = "tag was successfully updated"
+  else
+    @spreadsheets = Spreadsheet.all
+    @tags = Tag.all
+    render :spreadsheet_show
+  end
+end
+
   def destroy
-    @spreadsheet = Spreadsheet.find(params[:spreadsheet_id])
-    @tag = Tag.find(params[:id])
     @tag.destroy #可以加個確認訊息
+    flash[:alert] = "tag was successfully deleted"
     redirect_to spreadsheet_path(@spreadsheet)
   end
 
@@ -19,6 +35,10 @@ class TagsController < ApplicationController
 
   def set_spreadsheet
     @spreadsheet = Spreadsheet.find(params[:spreadsheet_id])
+  end
+
+  def set_tag
+    @tag = Tag.find(params[:id])
   end
 
   def tag_params
