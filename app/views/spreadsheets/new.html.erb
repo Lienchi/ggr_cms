@@ -1,0 +1,11 @@
+<div class="type-id">
+  <%= form_for @spreadsheet do |f| %>
+    <div class="form-group">
+      <%= f.text_field :spreadsheet_id, autofocus: true, placeholder: "Which spreadsheet ?" %>
+    </div>
+    <%= f.submit 'NEXT' %>
+  <% end %>
+  <% if @spreadsheet.errors.present? %>
+    <ul class="after-rendering"><li><%= @spreadsheet.errors.full_messages.to_sentence%></li></ul>
+  <% end %>
+</div>
