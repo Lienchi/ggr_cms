@@ -26,7 +26,7 @@ class TagsController < ApplicationController
 end
 
   def destroy
-    @tag.destroy #可以加個確認訊息
+    @tag.destroy
     flash[:alert] = "tag was successfully deleted"
     redirect_to spreadsheet_path(@spreadsheet)
   end

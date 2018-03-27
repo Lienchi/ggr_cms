@@ -1,1 +1,39 @@
 <h1>所有的tab與col</h1>
+<div>
+  <!--在這裡--><% if false %>
+    <% @tabs.each do |tab| %>
+  <% end %><!--在這裡-->
+  
+  <h3><!--在這裡--><% if false %><%= tab名稱 %><% end %><!--在這裡--></h3>
+  <table class="table table-hover">
+      <tr>
+        <th>欄位</th>
+        <th>XML tag 名稱</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+      <!--在這裡--><% if false %>
+        <% @cols.each do |col| %>
+      <% end %><!--在這裡-->
+        <tr>
+          <td><!--在這裡--><% if false %><%= col名稱 %><% end %><!--在這裡--></td>
+          <td><!--在這裡--><% if false %><%= 想要設成的連結名稱，也就是從下面的form_for得到的值(@tag.last?) %><% end %><!--在這裡--></td>
+          <td><!--在這裡--><% if false %><%= link_to 'Edit', spreadsheet_path(@spreadsheet, id: tag.id) %>不確定這個path的表達方式是不是對的<% end %><!--在這裡--></td>
+          <td><%= link_to 'Delete', spreadsheet_path(@spreadsheet), method: :delete, data: { confirm: "Are you sure?"} %></td>
+          <td>
+            <div class="form-inline">
+              <%= form_for [@spreadsheet, @tag] do |f| %>
+                <div class="form-group">
+                  <%= f.text_field :name %>
+                </div>
+                <%= f.submit 'OK' %>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      <!--在這裡--><% if false %><% end %><% end %><!--在這裡-->
+  </table>
+  <!--在這裡--><% if false %><% end %><% end %><!--在這裡-->
+</div>
