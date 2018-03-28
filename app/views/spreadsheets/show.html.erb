@@ -1,10 +1,11 @@
 <h1>所有的tab與col</h1>
+
 <div>
   <!--在這裡--><% if false %>
     <% @tabs.each do |tab| %>
   <% end %><!--在這裡-->
   
-  <h3><!--在這裡--><% if false %><%= tab名稱 %><% end %><!--在這裡--></h3>
+  <h3><!--在這裡--><% if false %><%= tab.properties.title %><% end %><!--在這裡--></h3>
   <table class="table table-hover">
       <tr>
         <th>欄位</th>

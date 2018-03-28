@@ -22,8 +22,8 @@ class SpreadsheetsController < ApplicationController
     @responses = @service.get_spreadsheet(@spreadsheet.name)
     @tabs = @service.get_spreadsheet(@spreadsheet.name, fields: "sheets.properties").sheets
     @cols #讀tab名稱還有col名稱
-    if params[id: tag.id] #不確定[]的表達方式是否是對的
-      @tag = Tag.find(params[id: tag.id]) #不確定[]的表達方式是否是對的
+    if params[:tag_id]
+      @tag = Tag.find(params[:tag_id])
     else
       @tag = Tag.new
     end
