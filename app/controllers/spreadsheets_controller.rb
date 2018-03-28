@@ -17,11 +17,12 @@ class SpreadsheetsController < ApplicationController
       render :new
     end
   end
-
+ 
   def show
     @responses = @service.get_spreadsheet(@spreadsheet.name)
     @tabs = @service.get_spreadsheet(@spreadsheet.name, fields: "sheets.properties").sheets
-    @cols #讀tab名稱還有col名稱
+ 
+    #@cols #讀tab名稱還有col名稱123
     if params[:tag_id]
       @tag = Tag.find(params[:tag_id])
     else
