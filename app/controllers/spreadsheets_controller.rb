@@ -1,8 +1,7 @@
 class SpreadsheetsController < ApplicationController
-  before_action :set_api, only: [:show]
+  before_action :set_api, only: [:show, :create]
   before_action :set_spreadsheet, only: [:show]
   
-
   def new
     @spreadsheet = Spreadsheet.new
   end
@@ -10,6 +9,18 @@ class SpreadsheetsController < ApplicationController
   def create
     @spreadsheet = Spreadsheet.new(spreadsheet_params)
     @spreadsheet.name =  @spreadsheet.name.split('/')[5]
+    tabs = @service.get_spreadsheet(@spreadsheet.name, fields: "sheets.properties").sheets
+    #save tabs 
+    tabs.each do |tab|
+      tab  = @spreadsheet.tabs.build(name: tab.properties.title)
+      tab.save
+      #save tags
+      @service.get_spreadsheet_values(@spreadsheet.name, tab.name).values[0].each do |column|
+        col = tab.tags.build(tab_name: tab.name, col: column, spreadsheet_id: tab.spreadsheet.name)
+        col.save
+      end
+    end
+
     if @spreadsheet.save
       redirect_to spreadsheet_path(@spreadsheet)
     else
@@ -19,15 +30,7 @@ class SpreadsheetsController < ApplicationController
   end
  
   def show
-    @responses = @service.get_spreadsheet(@spreadsheet.name)
-    @tabs = @service.get_spreadsheet(@spreadsheet.name, fields: "sheets.properties").sheets
- 
-    #@cols #讀tab名稱還有col名稱123
-    if params[:tag_id]
-      @tag = Tag.find(params[:tag_id])
-    else
-      @tag = Tag.new
-    end
+    @tabs = @spreadsheet.tabs
   end
 
   def js
