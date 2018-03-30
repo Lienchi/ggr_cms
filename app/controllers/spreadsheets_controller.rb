@@ -1,8 +1,7 @@
 class SpreadsheetsController < ApplicationController
-  before_action :set_api, only: [:show]
+  before_action :set_api, only: [:show, :create]
   before_action :set_spreadsheet, only: [:show]
   
-
   def new
     @spreadsheet = Spreadsheet.new
   end
@@ -31,15 +30,7 @@ class SpreadsheetsController < ApplicationController
   end
  
   def show
-    @responses = @service.get_spreadsheet(@spreadsheet.name)
-    @tabs = @service.get_spreadsheet(@spreadsheet.name, fields: "sheets.properties").sheets
- 
-    #@cols #讀tab名稱還有col名稱123
-    if params[:tag_id]
-      @tag = Tag.find(params[:tag_id])
-    else
-      @tag = Tag.new
-    end
+    @tabs = @spreadsheet.tabs
   end
 
   def js
