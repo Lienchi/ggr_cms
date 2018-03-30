@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180327171843) do
+ActiveRecord::Schema.define(version: 20180330093528) do
 
   create_table "spreadsheets", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tabs", force: :cascade do |t|
+    t.string "name"
+    t.string "spreadsheet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -25,6 +32,7 @@ ActiveRecord::Schema.define(version: 20180327171843) do
     t.string "spreadsheet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tab_id"
   end
 
 end
