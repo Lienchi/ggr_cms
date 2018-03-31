@@ -15,9 +15,12 @@ class SpreadsheetsController < ApplicationController
       tab  = @spreadsheet.tabs.build(name: tab.properties.title)
       tab.save
       #save tags
+      range = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+      n = 0
       @service.get_spreadsheet_values(@spreadsheet.name, tab.name).values[0].each do |column|
-        col = tab.tags.build(tab_name: tab.name, col: column, spreadsheet_id: tab.spreadsheet.name)
+        col = tab.tags.build(tab_name: tab.name, col: column, spreadsheet_id: tab.spreadsheet.name, col_range: range[n])
         col.save
+        n += 1
       end
     end
 
@@ -46,7 +49,7 @@ class SpreadsheetsController < ApplicationController
       end 
     end
     output_arr.each do |x|
-      @col_arr << x.col
+      @col_arr << x.col + "!" + x.col_range+":"+ x.col_range
       @name_arr << x.name
     end
   end
