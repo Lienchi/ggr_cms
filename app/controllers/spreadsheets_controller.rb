@@ -1,6 +1,6 @@
 class SpreadsheetsController < ApplicationController
-  before_action :set_api, only: [:show, :create]
-  before_action :set_spreadsheet, only: [:show]
+  before_action :set_api, only: [:create, :js]
+  before_action :set_spreadsheet, only: [:show, :js]
   
   def new
     @spreadsheet = Spreadsheet.new
@@ -34,7 +34,21 @@ class SpreadsheetsController < ApplicationController
   end
 
   def js
-
+  #  <%='#{@spreadsheed.name}', '#{有所有tags.col的陣列}', '#{有所有tags.name的陣列}' %>
+    output_arr = []
+    @col_arr = []
+    @name_arr = []
+    @spreadsheet.tabs.each do |tab|
+      tab.tags.each do |tag|
+        unless tag.name.blank?
+          output_arr << tag
+        end  
+      end 
+    end
+    output_arr.each do |x|
+      @col_arr << x.col
+      @name_arr << x.name
+    end
   end
 
   private

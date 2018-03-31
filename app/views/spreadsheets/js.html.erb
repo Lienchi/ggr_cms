@@ -18,7 +18,7 @@
           discoveryDocs: DISCOVERY_DOCS,
           scope: SCOPES
         }).then(function () {
-          putItIn(</p><!--在這裡--><% if false %><%= 幫我傳入'#{使用者輸入的spreadsheet_id.name}', '#{有所有tags.col的陣列}', '#{有所有tags.name的陣列}' %><% end %><!--在這裡--><p>);
+          putItIn(</p><%= @spreadsheet.name%>,<%= @col_arr %>,<%= @name_arr %> <p>);
         });
       }
           
