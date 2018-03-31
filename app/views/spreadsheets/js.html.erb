@@ -18,7 +18,7 @@
           discoveryDocs: DISCOVERY_DOCS,
           scope: SCOPES
         }).then(function () {
-          putItIn(</p><%= "#{@spreadsheet.name}" %>,<%= @col_arr %>,<%= @name_arr %> <p>);
+          putItIn(</p><%= "'"+@spreadsheet.name+"'" %>,<%= @col_arr %>,<%= @name_arr %> <p>);
         });
       }
           
