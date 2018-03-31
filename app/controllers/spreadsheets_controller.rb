@@ -34,7 +34,7 @@ class SpreadsheetsController < ApplicationController
   end
 
   def js
-  #  <%='#{@spreadsheed.name}', '#{有所有tags.col的陣列}', '#{有所有tags.name的陣列}' %>
+    #  @spreadsheed.name,有所有tags.col的陣列,有所有tags.name的陣列
     output_arr = []
     @col_arr = []
     @name_arr = []
