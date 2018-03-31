@@ -3,7 +3,7 @@
 
   <% i = 1 %>
   <% @tabs.each do |tab| %>
-    <div>
+    <div class="sheet-block">
       <h3><%='Sheet ' + i.to_s + ' : ' + tab.name %></h3>
       <table class="table table-hover">
         <tr>
@@ -38,5 +38,5 @@
     </div>
     <% i += 1 %>
   <% end %>
-  <%= link_to 'See My JS Pack', js_spreadsheet_path(@spreadsheet) %>
+  <div><%= link_to 'See My JS Pack', js_spreadsheet_path(@spreadsheet) %></div>
 </div>
