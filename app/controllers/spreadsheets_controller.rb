@@ -49,7 +49,7 @@ class SpreadsheetsController < ApplicationController
       end 
     end
     output_arr.each do |x|
-      @col_arr << x.col + "!" + x.col_range+":"+ x.col_range
+      @col_arr << x.tab.name + "!" + x.col_range+":"+ x.col_range
       @name_arr << x.name
     end
   end
