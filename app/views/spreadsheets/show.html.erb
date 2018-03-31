@@ -1,11 +1,11 @@
-<h1>所有的tab與col</h1>
+<div class="show">
+  <h1>所有的tab與col</h1>
 
- 
-<div>
+  <% i = 1 %>
   <% @tabs.each do |tab| %>
-    <%= tab.name %>
- 
-    <table class="table table-hover">
+    <div>
+      <h3><%='Sheet ' + i.to_s + ' : ' + tab.name %></h3>
+      <table class="table table-hover">
         <tr>
           <th>欄位</th>
           <th>XML tag 名稱</th>
@@ -13,7 +13,7 @@
           <th></th>
           <th></th>
         </tr>
-  
+      
         <% tab.tags.each do |tag| %>
           <tr>
             <td><%= tag.col %></td>
@@ -23,7 +23,7 @@
                 <%= form_for tag do |f| %>
                   <div class="form-group">
                     <% if tag.name .blank? %>
-                      <%= f.text_field :name, placeholder: "Enter a link name" %>
+                      <%= f.text_field :name, placeholder: "name of your xmltag" %>
                       <%= f.submit 'OK', class: "btn btn-primary" %>
                     <% else %>
                       <%= link_to 'Clear', tag_path(tag, tag: {name: nil}), method: :patch, class: "btn btn-default" %>
@@ -34,7 +34,9 @@
             </td>
           </tr>
         <% end %>
-    </table>
+      </table>
+    </div>
+    <% i += 1 %>
   <% end %>
   <%= link_to 'See My JS Pack', js_spreadsheet_path(@spreadsheet) %>
 </div>
