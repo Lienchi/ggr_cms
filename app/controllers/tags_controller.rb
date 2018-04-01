@@ -7,6 +7,7 @@ class TagsController < ApplicationController
         @tag.name = nil
         @tag.save
         redirect_to spreadsheet_path(@tag.tab.spreadsheet.id)
+        flash[:alert] = "Name can't be blank"
       else
         redirect_to spreadsheet_path(@tag.tab.spreadsheet.id)
         flash[:notice] = "tag was successfully updated"
