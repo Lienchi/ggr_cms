@@ -64,3 +64,24 @@ ul, ol {
   font-size: 25px;
   color: #6c6c6c;
 }
+
+.show > h1{
+  text-align: center;
+}
+
+.sheet-block{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.show >div{
+  text-align: center;
+}
+
+.show > div > a{
+  border: 2px solid #323237;
+  padding: 15px 30px;
+  font-size: 17px;
+  border-radius: 30px;
+  margin: 0 auto;
+}
