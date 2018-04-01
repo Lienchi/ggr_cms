@@ -15,7 +15,7 @@ class SpreadsheetsController < ApplicationController
       tab  = @spreadsheet.tabs.build(name: tab.properties.title)
       tab.save
       #save tags
-      range = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+      range = ("A".."ZZ").to_a
       n = 0
       @service.get_spreadsheet_values(@spreadsheet.name, tab.name).values[0].each do |column|
         col = tab.tags.build(tab_name: tab.name, col: column, spreadsheet_id: tab.spreadsheet.name, col_range: range[n])
@@ -70,4 +70,5 @@ class SpreadsheetsController < ApplicationController
   def spreadsheet_params
     params.require(:spreadsheet).permit(:name)
   end
+
 end
