@@ -1,5 +1,5 @@
 <div class="show">
-  <h1>所有的tab與col</h1>
+  <h1>All Sheets You Have</h1>
 
   <% i = 1 %>
   <% @tabs.each do |tab| %>
@@ -9,8 +9,6 @@
         <tr>
           <th>欄位</th>
           <th>XML tag 名稱</th>
-          <th></th>
-          <th></th>
           <th></th>
         </tr>
       
@@ -23,10 +21,10 @@
                 <%= form_for tag do |f| %>
                   <div class="form-group">
                     <% if tag.name .blank? %>
-                      <%= f.text_field :name, placeholder: "name of your xmltag" %>
-                      <%= f.submit 'OK', class: "btn btn-primary" %>
+                      <%= f.text_field :name, placeholder: " name of XML tag" %>
+                      <%= f.submit 'OK', class: "ok-btn" %>
                     <% else %>
-                      <%= link_to 'Clear', tag_path(tag, tag: {name: nil}), method: :patch, class: "btn btn-default" %>
+                      <%= link_to 'Delete', tag_path(tag, tag: {name: nil}), method: :patch, class: "delete-btn" %>
                     <% end %>
                   </div>
                 <% end %>
