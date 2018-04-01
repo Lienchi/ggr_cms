@@ -3,8 +3,14 @@ class TagsController < ApplicationController
 
   def update
     if @tag.update(tag_params)
-      redirect_to spreadsheet_path(@tag.tab.spreadsheet.id)
-      flash[:notice] = "tag was successfully updated"
+      if @tag.name.blank?
+        @tag.name = nil
+        @tag.save
+        redirect_to spreadsheet_path(@tag.tab.spreadsheet.id)
+      else
+        redirect_to spreadsheet_path(@tag.tab.spreadsheet.id)
+        flash[:notice] = "tag was successfully updated"
+      end  
     else
       @spreadsheets = Spreadsheet.all
       @tags = Tag.all
