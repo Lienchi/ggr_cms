@@ -45,10 +45,14 @@ div.notice{
   font-weight: 900;
 }
 
+img{
+  margin-bottom: 30px;
+}
+
 .type-id{
   width: 100vw;
   position: absolute;
-  top: 35%;
+  top: 15%;
   text-align: center;
 }
 
@@ -91,20 +95,20 @@ div.notice{
   color: #6c6c6c;
 }
 
-.show{
-  margin-top: 8%;
+.show, .js{
+  margin-top: 7%;
 }
 
-.show > h1{
+.show > h1, .js > h1{
   text-align: center;
   margin-bottom: 6%;
 }
 
-.show >div{
+.show >div, .js > div{
   text-align: center;
 }
 
-.show > div > a{
+.show > div > a, .js >div > a{
   border: 2px solid #323237;
   padding: 15px 30px;
   font-size: 17px;
@@ -115,7 +119,7 @@ div.notice{
 .sheet-block{
   width: 60%;
   margin: auto;
-  margin-bottom: 6%;
+  margin-bottom: 5%;
   border: 2px solid #323237;
   border-radius: 30px;
   padding: 2% 5%;
@@ -146,10 +150,6 @@ div.notice{
   border-bottom: 2px solid #323237;
 }
 
-.sheet-block input:nth-child(2){
-  
-}
-
 .ok-btn{
   border: 2px solid #323237;
   border-radius: 15px;
@@ -157,13 +157,27 @@ div.notice{
 }
 
 .delete-btn{
-  border: 2px solid #323237;
+  border: 2px solid #008080;
   border-radius: 15px;
   padding: 8px 20px;
-  background-color: #323237;
+  background-color: #008080;
   color: #fff;
 }
 
 .delete-btn:hover{
   color: #fff;
+}
+
+.js-pack{
+  margin: auto;
+  margin-bottom: 5%;
+  width: 60%;
+  border: 1px solid #323237;
+  border-radius: 30px;
+  padding: 2%;
+  background-color: #fff;
+}
+
+.js-pack > p{
+  display: inline;
 }
