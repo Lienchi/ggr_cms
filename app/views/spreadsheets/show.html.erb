@@ -21,7 +21,7 @@
                 <%= form_for tag do |f| %>
                   <div class="form-group">
                     <% if tag.name .blank? %>
-                      <%= f.text_field :name, placeholder: " name of XML tag" %>
+                      <%= f.text_field :name, placeholder: " Name your XML tag" %>
                       <%= f.submit 'OK', class: "ok-btn" %>
                     <% else %>
                       <%= link_to 'Delete', tag_path(tag, tag: {name: nil}), method: :patch, class: "delete-btn" %>

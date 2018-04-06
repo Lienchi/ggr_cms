@@ -34,12 +34,35 @@
                 for (j = 0; j < result.valueRanges[i].values.length; j++) {
                   var row = result.valueRanges[i].values[j];
                   var tags = document.getElementsByTagName(tag_name[i]);
-                  k = 0;
-                  while(k < tags.length){
-                    if(tags[k].id == j){
-                      tags[k].innerHTML = row[0];
+
+                  if (<!--在這裡--><% if false %><%= 使用者選擇格式為文字 %><% end %><!--在這裡-->){
+                    k = 0;
+                    while(k < tags.length){
+                      if(tags[k].id == j){
+                        tags[k].innerHTML = row[0];
+                      }
+                      k++;
                     }
-                    k++;
+                  } else if (<!--在這裡--><% if false %><%= 使用者選擇格式為圖片 %><% end %><!--在這裡-->) {
+                    k = 0;
+                    while(k < tags.length){
+                      if(tags[k].id == j){
+                        var img = document.createElement("img");
+                        tags[k].appendChild(img);
+                        tags[k].childNodes[0].src = row[0];
+                      }
+                      k++;
+                    }
+                  } else {
+                    k = 0;
+                    while(k < tags.length){
+                      if(tags[k].id == j){
+                        var iframe = document.createElement("iframe");
+                        tags[k].appendChild(iframe);
+                        tags[k].childNodes[0].src = row[0];
+                      }
+                      k++;
+                    }
                   }
                 }
               }
