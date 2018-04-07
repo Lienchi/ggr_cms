@@ -41,6 +41,7 @@ class SpreadsheetsController < ApplicationController
     output_arr = []
     @col_arr = []
     @name_arr = []
+    @category_arr = []
     @spreadsheet.tabs.each do |tab|
       tab.tags.each do |tag|
         unless tag.name.blank?
@@ -51,6 +52,7 @@ class SpreadsheetsController < ApplicationController
     output_arr.each do |x|
       @col_arr << x.tab.name + "!" + x.col_range+":"+ x.col_range
       @name_arr << x.name
+      @category_arr << x.category_id
     end
   end
 

@@ -19,11 +19,11 @@
             discoveryDocs: DISCOVERY_DOCS,
             scope: SCOPES
           }).then(function () {
-            putItIn(</p><p><%= "'"+@spreadsheet.name+"'" %>,<%= @col_arr %>,<%= @name_arr %></p><p>);
+            putItIn(</p><p><%= "'"+@spreadsheet.name+"'" %>,<%= @col_arr %>,<%= @name_arr %>, <%= @category_arr %></p><p>);
           });
         }
             
-        function putItIn(spreadsheet_id, ranges, tag_name) {
+        function putItIn(spreadsheet_id, ranges, tag_name, category) {
           gapi.client.sheets.spreadsheets.values.batchGet({
             spreadsheetId: spreadsheet_id,
             ranges: ranges,
@@ -35,7 +35,7 @@
                   var row = result.valueRanges[i].values[j];
                   var tags = document.getElementsByTagName(tag_name[i]);
 
-                  if (<!--在這裡--><% if false %><%= 使用者選擇格式為文字 %><% end %><!--在這裡-->){
+                  if  ( category[i] == "1" ) {
                     k = 0;
                     while(k < tags.length){
                       if(tags[k].id == j){
@@ -43,7 +43,7 @@
                       }
                       k++;
                     }
-                  } else if (<!--在這裡--><% if false %><%= 使用者選擇格式為圖片 %><% end %><!--在這裡-->) {
+                  } else if ( category[i] == "2") {
                     k = 0;
                     while(k < tags.length){
                       if(tags[k].id == j){
