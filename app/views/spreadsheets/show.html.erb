@@ -5,6 +5,7 @@
   <% @tabs.each do |tab| %>
     <div class="sheet-block">
       <h3><%='Sheet ' + i.to_s + ' : ' + tab.name %></h3>
+      <%= tab.dimension %>
       <table class="table table-hover">
         <tr>
           <th>欄位</th>
