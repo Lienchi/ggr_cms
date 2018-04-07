@@ -5,10 +5,15 @@
   <% @tabs.each do |tab| %>
     <div class="sheet-block">
       <h3><%='Sheet ' + i.to_s + ' : ' + tab.name %></h3>
-      <%= tab.dimension %>
+      <%  if tab.dimension %>
+        <%= link_to "Columns", dimension_tab_path(tab), class: "btn" %>  
+      <% else %>    
+        <%= link_to "Rows", dimension_tab_path(tab), class: "btn" %>  
+      <%  end %>
       <table class="table table-hover">
         <tr>
           <th>欄位</th>
+          <th>Range</th>
           <th>資料類型</th>
           <th>XML tag 名稱</th>
           <th></th>
@@ -17,6 +22,7 @@
         <% tab.tags.each do |tag| %>
           <tr>
             <td><%= tag.col %></td>
+            <td><%= tag.col_range %></td>
             <td><%= tag.category.name %></td>
             <td><%= tag.name %></td>
             <td>
