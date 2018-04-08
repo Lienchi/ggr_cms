@@ -4,13 +4,15 @@
   <% i = 1 %>
   <% @tabs.each do |tab| %>
     <div class="sheet-block">
-      <h3><%='Sheet ' + i.to_s + ' : ' + tab.name %></h3>
+      <button    data-toggle="collapse" data-target="#table-<%= i %>" >
+        <h3 ><%='Sheet ' + i.to_s + ' : ' + tab.name %></h3>
+      </button>
       <%  if tab.dimension %>
         <%= link_to "Columns", dimension_tab_path(tab), class: "btn" %>  
       <% else %>    
         <%= link_to "Rows", dimension_tab_path(tab), class: "btn" %>  
       <%  end %>
-      <table class="table table-hover">
+      <table class="table table-hover collapse" id = "table-<%= i %>">
         <tr>
           <th>欄位</th>
           <th>Range</th>
