@@ -1,4 +1,5 @@
 class SpreadsheetsController < ApplicationController
+  require 'google/apis/sheets_v4'
   before_action :set_api, only: [:create, :js]
   before_action :set_spreadsheet, only: [:show, :js]
   
@@ -72,9 +73,8 @@ class SpreadsheetsController < ApplicationController
   private
 
   def set_api
-    require 'google/apis/sheets_v4'
     @service = Google::Apis::SheetsV4::SheetsService.new
-    @service.key = 'AIzaSyCw1eTY-S9Xuxqv4AZ_bfHDlxEJ3KsLuig'
+    @service.key = Rails.application.config_for(:api)["api_key"]
     @service.authorization = nil
   end
 
