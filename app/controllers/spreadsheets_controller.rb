@@ -7,29 +7,42 @@ class SpreadsheetsController < ApplicationController
   end
 
   def create
-    @spreadsheet = Spreadsheet.new(spreadsheet_params)
-    @spreadsheet.name =  @spreadsheet.name.split('/')[5]
-    tabs = @service.get_spreadsheet(@spreadsheet.name, fields: "sheets.properties").sheets
-    #save tabs 
-    tabs.each do |tab|
-      tab  = @spreadsheet.tabs.build(name: tab.properties.title)
-      tab.save
-      #save tags
-      range = ("A".."ZZ").to_a
-      n = 0
-      @service.get_spreadsheet_values(@spreadsheet.name, tab.name).values[0].each do |column|
-        col = tab.tags.build(tab_name: tab.name, col: column, spreadsheet_id: tab.spreadsheet.name, col_range: range[n], category_id: 1)
-        col.save!
-        n += 1
+    begin
+      @spreadsheet = Spreadsheet.new(spreadsheet_params)
+      unless @spreadsheet.name.blank?
+        url_arr = @spreadsheet.name.split('/')
+        if (url_arr.length > 5) && 
+          (url_arr[0]+url_arr[1]+url_arr[2]+url_arr[3]+url_arr[4] == "https:docs.google.comspreadsheetsd") &&
+          (url_arr[5].length == 44 )
+          @spreadsheet.name =  url_arr[5]
+          @spreadsheet.save
+          tabs = @service.get_spreadsheet(@spreadsheet.name, fields: "sheets.properties").sheets
+          #save tabs 
+          tabs.each do |tab|
+            tab  = @spreadsheet.tabs.build(name: tab.properties.title)
+            tab.save
+            #save tags
+            range = ("A".."ZZ").to_a
+            n = 0
+            @service.get_spreadsheet_values(@spreadsheet.name, tab.name).values[0].each do |column|
+              col = tab.tags.build(tab_name: tab.name, col: column, spreadsheet_id: tab.spreadsheet.name, col_range: range[n], category_id: 1)
+              col.save
+              n += 1
+            end
+          end
+          redirect_to spreadsheet_path(@spreadsheet)
+        else  
+          flash[:alert] = "Please enter valid Google Spreadsheet"
+          redirect_to new_spreadsheet_path
+        end
+      else
+        flash[:alert] = "Spreadsheet can't be blank"
+        redirect_to new_spreadsheet_path      
       end
-    end
-
-    if @spreadsheet.save
-      redirect_to spreadsheet_path(@spreadsheet)
-    else
-      #add restriction for unvailid url 
-      render :new
-    end
+    rescue
+      flash[:alert] = "Please enter valid Google Spreadsheet"
+      redirect_to new_spreadsheet_path
+    end  
   end
  
   def show
