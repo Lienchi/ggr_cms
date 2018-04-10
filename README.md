@@ -16,7 +16,7 @@ Completed:
   
 In progress:
   1. 希望把網站改成AJAX<br>
-  2. 重購程式碼<br>
+  2. 重構程式碼<br>
   3. 改變資料存法以增進效能<br>
   4. 部署上已購買的網域<br>
   5. 調整CSS樣式<br>
