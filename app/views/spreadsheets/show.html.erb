@@ -3,10 +3,8 @@
 
   <% i = 1 %>
   <% @tabs.each do |tab| %>
-    <div class="sheet-block">
-      <h3 data-toggle="collapse" data-target="#table-<%= i %>" >
-        <%='Sheet ' + i.to_s + ' : ' + tab.name %>
-      </h3>
+    <div class="sheet-block" data-toggle="collapse" data-target="#table-<%= i %>">
+      <h3><%='Sheet ' + i.to_s + ' : ' + tab.name %></h3>
       <% if tab.dimension %>
         <%= link_to "Columns", dimension_tab_path(tab), class: "btn" %>  
       <% else %>    
@@ -46,12 +44,11 @@
     </div>
     <% i += 1 %>
   <% end %>
-  <div><%= link_to 'See My JS Pack', spreadsheet_path(@spreadsheet) %></div>
 </div>
 
 <div class="js">
   <h1>Embed this in your HTML file !</h1>
-  <div class="js-pack">
+  <div id="js-pack">
     <p>
       &lt;script type="text/javascript">
         var CLIENT_ID = '673381173216-1cg3p0mqapitdm647sqtn8umspgnncln';
@@ -142,3 +139,27 @@
   </div>
   <div><a href="/">Produce A New One</a></div>
 </div>
+<jpg id=9></jpg>
+
+<script>
+  function SelectText(element) {
+  var doc = document,
+    text = doc.getElementById(element),
+    range, selection;
+  if (doc.body.createTextRange) {
+    range = document.body.createTextRange();
+    range.moveToElementText(text);
+    range.select();
+  } else if (window.getSelection) {
+    selection = window.getSelection();
+    range = document.createRange();
+    range.selectNodeContents(text);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }
+}
+
+document.getElementById('js-pack').addEventListener('click', function() {
+  SelectText('js-pack');
+});
+</script>
