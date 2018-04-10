@@ -86,10 +86,12 @@
                   
                   var row = result.valueRanges[i].values[j];
                   var tags = document.getElementsByTagName(tag_name[i]);
+                  var col_or_row = ranges[i].split(":");
+
                   for (k = 0; k < row.length; k++) {
 
                     var tag_id;
-                    <!--在這裡-->如果是欄<!--在這裡--> ? tag_id = j : tag_id = k; 
+                    Number(col_or_row[1]) ? tag_id = k : tag_id = j; 
                     if  ( category[i] == "1" ) {
                       l = 0;
                       while(l < tags.length){
@@ -109,7 +111,7 @@
                         l++;
                       }
                     } else {
-                      k = 0;
+                      l = 0;
                       while(l < tags.length){
                         if(tags[l].id == tag_id){
                           var iframe = document.createElement("iframe");
