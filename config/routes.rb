@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :spreadsheets, only: [:new, :create, :show] do
     member do
       get :js
+      get :pdf
     end    
   end
 
