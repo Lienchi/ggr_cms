@@ -4,10 +4,10 @@
   <% i = 1 %>
   <% @tabs.each do |tab| %>
     <div class="sheet-block">
-      <button    data-toggle="collapse" data-target="#table-<%= i %>" >
-        <h3 ><%='Sheet ' + i.to_s + ' : ' + tab.name %></h3>
-      </button>
-      <%  if tab.dimension %>
+      <h3 data-toggle="collapse" data-target="#table-<%= i %>" >
+        <%='Sheet ' + i.to_s + ' : ' + tab.name %>
+      </h3>
+      <% if tab.dimension %>
         <%= link_to "Columns", dimension_tab_path(tab), class: "btn" %>  
       <% else %>    
         <%= link_to "Rows", dimension_tab_path(tab), class: "btn" %>  
@@ -15,7 +15,6 @@
       <table class="table table-hover collapse" id = "table-<%= i %>">
         <tr>
           <th>欄位</th>
-          <th>Range</th>
           <th>資料類型</th>
           <th>XML tag 名稱</th>
           <th></th>
@@ -24,7 +23,6 @@
         <% tab.tags.each do |tag| %>
           <tr>
             <td><%= tag.col %></td>
-            <td><%= tag.col_range %></td>
             <td><%= tag.category.name %></td>
             <td><%= tag.name %></td>
             <td>
