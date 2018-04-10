@@ -1,20 +1,31 @@
 <div class="show">
   <h1>All Sheets You Have</h1>
+  <p>click the sheet title to expand the block and name the col/row by the XML tag you would like to use</p>
 
   <% i = 1 %>
   <% @tabs.each do |tab| %>
-    <div class="sheet-block" data-toggle="collapse" data-target="#table-<%= i %>">
-      <h3><%='Sheet ' + i.to_s + ' : ' + tab.name %></h3>
+    <div class="sheet-block">
+      <h3 data-toggle="collapse" data-target="#table-<%= i %>"><%='Sheet ' + i.to_s + ' : ' + tab.name %></h3>
       <% if tab.dimension %>
-        <%= link_to "Columns", dimension_tab_path(tab), class: "btn" %>  
+        <%= link_to "COL or row ", dimension_tab_path(tab), class: "btn" %>  
       <% else %>    
-        <%= link_to "Rows", dimension_tab_path(tab), class: "btn" %>  
+        <%= link_to "ROW or col", dimension_tab_path(tab), class: "btn" %>  
       <%  end %>
       <table class="table table-hover collapse" id = "table-<%= i %>">
         <tr>
-          <th>欄位</th>
+          <% if tab.dimension %>
+            <th>欄</th>
+          <% else %>
+            <th>列</th>
+          <% end %>
           <th>資料類型</th>
-          <th>XML tag 名稱</th>
+          <% tab.tags.each do |tag| %>
+            <% if tag.name .blank? %>
+              <th></th>
+            <% else %>
+              <th>XML tag 名稱</th>
+            <% end %>
+          <% end %>
           <th></th>
         </tr>
       
@@ -137,7 +148,7 @@
       &lt;/script>
     </p>
   </div>
-  <div><a href="/">Produce A New One</a></div>
+  <div><a href="/">Link A New Spreadsheet</a></div>
 </div>
 <jpg id=9></jpg>
 

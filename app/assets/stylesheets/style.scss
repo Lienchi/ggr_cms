@@ -95,13 +95,19 @@ img{
   color: #6c6c6c;
 }
 
-.show, .js{
+.show{
   margin-top: 7%;
 }
 
 .show > h1, .js > h1{
   text-align: center;
-  margin-bottom: 6%;
+  
+}
+
+.show > p{
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 4%;
 }
 
 .show >div, .js > div{
@@ -119,16 +125,16 @@ img{
 .sheet-block{
   width: 60%;
   margin: auto;
-  margin-bottom: 5%;
+  margin-bottom: 1%;
   border: 2px solid #323237;
   border-radius: 30px;
-  padding: 2% 5%;
-  cursor: pointer;
+  padding: 10px 5%;
 }
 
 .sheet-block h3{
   margin-bottom: 4%;
   display: inline;
+  cursor: pointer;
 }
 
 .sheet-block th{
@@ -140,7 +146,7 @@ img{
   border-top: none;
 }
 
-.sheet-block th:nth-child(3), .sheet-block td:nth-child(3){
+.sheet-block th:nth-child(4), .sheet-block td:nth-child(4){
   width: 45%;
 }
 
@@ -168,6 +174,10 @@ img{
 
 .delete-btn:hover{
   color: #fff;
+}
+
+.js{
+  margin-top: 15%;
 }
 
 #js-pack{
