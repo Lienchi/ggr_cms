@@ -33,7 +33,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'google-api-client'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
-
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+gem 'clipboard-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
