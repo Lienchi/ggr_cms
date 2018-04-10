@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :spreadsheets, only: [:new, :create, :show] do
-    member do
-      get :js
-    end    
-  end
+  resources :spreadsheets, only: [:new, :create, :show]
 
   resources :tabs, only: [] do
     member do

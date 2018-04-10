@@ -39,10 +39,6 @@ class SpreadsheetsController < ApplicationController
     end
   end
 
-  def js
-    
-  end
-
   private
 
   def set_api
