@@ -48,9 +48,7 @@ class SpreadsheetsController < ApplicationController
  
   def show
     @tabs = @spreadsheet.tabs
-  end
 
-  def js
     #  @spreadsheed.name,有所有tags.col的陣列,有所有tags.name的陣列
     output_arr = []
     @col_arr = []
@@ -68,6 +66,10 @@ class SpreadsheetsController < ApplicationController
       @name_arr << x.name
       @category_arr << x.category_id
     end
+  end
+
+  def js
+    
   end
 
   private

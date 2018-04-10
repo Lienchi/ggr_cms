@@ -21,4 +21,4 @@
 /yarn-error.log
 
 .byebug_history
-/config/spreadsheet.yml
+/config/api.yml
