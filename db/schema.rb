@@ -10,18 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180407080841) do
+ActiveRecord::Schema.define(version: 20180410035541) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
   end
 
   create_table "spreadsheets", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_spreadsheets_on_name"
   end
 
   create_table "tabs", force: :cascade do |t|
@@ -30,6 +32,7 @@ ActiveRecord::Schema.define(version: 20180407080841) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "dimension", default: true
+    t.index ["spreadsheet_id"], name: "index_tabs_on_spreadsheet_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -42,6 +45,7 @@ ActiveRecord::Schema.define(version: 20180407080841) do
     t.string "tab_id"
     t.string "col_range"
     t.string "category_id"
+    t.index ["tab_id", "category_id"], name: "index_tags_on_tab_id_and_category_id"
   end
 
 end
