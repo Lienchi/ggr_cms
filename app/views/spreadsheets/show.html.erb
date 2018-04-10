@@ -83,36 +83,41 @@
             if (result.valueRanges.length > 0) {
               for (i = 0; i < result.valueRanges.length; i++) {
                 for (j = 0; j < result.valueRanges[i].values.length; j++) {
+                  
                   var row = result.valueRanges[i].values[j];
                   var tags = document.getElementsByTagName(tag_name[i]);
+                  for (k = 0; k < row.length; k++) {
 
-                  if  ( category[i] == "1" ) {
-                    k = 0;
-                    while(k < tags.length){
-                      if(tags[k].id == j){
-                        tags[k].innerHTML = row[0];
+                    var tag_id;
+                    <!--在這裡-->如果是欄<!--在這裡--> ? tag_id = j : tag_id = k; 
+                    if  ( category[i] == "1" ) {
+                      l = 0;
+                      while(l < tags.length){
+                        if(tags[l].id == tag_id){
+                          tags[l].innerHTML = row[k]; 
+                        }
+                        l++;
                       }
-                      k++;
-                    }
-                  } else if ( category[i] == "2") {
-                    k = 0;
-                    while(k < tags.length){
-                      if(tags[k].id == j){
-                        var img = document.createElement("img");
-                        tags[k].appendChild(img);
-                        tags[k].childNodes[0].src = row[0];
+                    } else if ( category[i] == "2") {
+                      l = 0;
+                      while(l < tags.length){
+                        if(tags[l].id == tag_id){
+                          var img = document.createElement("img");
+                          tags[l].appendChild(img);
+                          tags[l].childNodes[0].src = row[k];
+                        }
+                        l++;
                       }
-                      k++;
-                    }
-                  } else {
-                    k = 0;
-                    while(k < tags.length){
-                      if(tags[k].id == j){
-                        var iframe = document.createElement("iframe");
-                        tags[k].appendChild(iframe);
-                        tags[k].childNodes[0].src = row[0];
+                    } else {
+                      k = 0;
+                      while(l < tags.length){
+                        if(tags[l].id == tag_id){
+                          var iframe = document.createElement("iframe");
+                          tags[l].appendChild(iframe);
+                          tags[l].childNodes[0].src = row[k];
+                        }
+                        l++;
                       }
-                      k++;
                     }
                   }
                 }
