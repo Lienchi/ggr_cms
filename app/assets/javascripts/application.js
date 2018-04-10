@@ -15,3 +15,11 @@
 //= require_tree .
 //= require jquery
 //= require bootstrap-sprockets
+//= require clipboard
+
+$(document).ready(function(){  
+  
+  var clipboard = new Clipboard('.clipboard-btn');
+  console.log(clipboard);
+  
+});
