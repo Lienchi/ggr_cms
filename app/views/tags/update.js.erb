@@ -1,0 +1,10 @@
+ 
+var col_tds = $("#table-<%= @column[:tab_id]%>  > tbody > .col-<%= @column[:index] %> ").children();
+var ok = $("#table-<%= @column[:tab_id]%>  > tbody > .col-<%= @column[:index] %>  .ok");
+var clear = $("#table-<%= @column[:tab_id]%>  > tbody > .col-<%= @column[:index] %> .delete "); 
+
+$(col_tds[4]).html( "<%= Category.find(@column[:category_id]).name %>");
+$(col_tds[5]).html( "<%= @column[:xml_name]%> ");
+$(ok).hide();
+$(clear).show();
+
