@@ -1,0 +1,7 @@
+<%= link_to hide_tabs_path(:tab_index => @tab_index ,:hide => @hide ), remote: true,  method: :post  do %>
+  <% if hide == "hide" %>
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  <% else %>
+    <span class="glyphicon glyphicon-chevron-down"></span>
+  <% end %>
+<% end %>
