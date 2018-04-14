@@ -18,6 +18,16 @@ class TagsController < ApplicationController
     @column = params[:column]
   end
 
+  def destroy
+    @column = params[:column]
+    #render plain: params
+  end
+
+  # def test
+ 
+  #   render plain: params[:column]["name"]
+  # end
+
 
   private
 
