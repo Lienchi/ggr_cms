@@ -1,0 +1,6 @@
+% if @hide == "hide" %>
+  $("#table-<%= @tab_index %>").show();
+<% else %>
+  $("#table-<%= @tab_index %>").hide();
+<% end %>
+$("#hide-<%= @tab_index %>").html("<%= j render(:partial => "tabs/hide", :locals => {:tab_index => @tab_index, :hide => @hide} ) %>");
