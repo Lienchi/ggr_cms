@@ -5,7 +5,6 @@ class TagsController < ApplicationController
 
   def create
     @tab_index = params[:index]
-    @hide = "hide" 
     range = ("A".."ZZ").to_a
     @columns =[]
     @service.get_spreadsheet_values(session["spreadsheet_id"], session["tabs"][@tab_index.to_i]["name"]).values[0].each_with_index do |column, index|

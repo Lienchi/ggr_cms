@@ -1,6 +1,7 @@
 class TabsController < ApplicationController
   require 'google/apis/sheets_v4'
-  before_action :set_api 
+  before_action :set_api
+ 
 
   def create
     session["spreadsheet_id"] = params[:spreadsheet][:spreadsheet_url]
@@ -43,6 +44,7 @@ class TabsController < ApplicationController
   #   redirect_to spreadsheet_path(@tab.spreadsheet)
   # end
 
+ 
 
   private
 
@@ -51,5 +53,5 @@ class TabsController < ApplicationController
     @service.key = Rails.application.config_for(:api)["api_key"]
     @service.authorization = nil
   end
-
+ 
 end
