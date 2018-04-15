@@ -1,6 +1,4 @@
- $("#tags").append("<%= j render(:partial => "tag", :locals => {:columns => @columns, :tab_index => @tab_index}) %>");
+$("#tags").append("<%= j render(:partial => "tag", :locals => {:columns => @columns, :tab_index => @tab_index}) %>");
 $(".delete").hide();
 
-$("#hide-<%= @tab_index %>").html("<%= j render(:partial => "tabs/hide", :locals => {:tab_index => @tab_index, :hide => @hide} ) %>");
-
-
+$("#tab-<%= @tab_index %>").html("<%= j render(:partial => "tabs/tab_btn", :locals => {:tab_index => @tab_index } ) %>");
