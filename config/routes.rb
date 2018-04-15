@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resource :tabs, only: [:create, :update] do
     collection do 
-      get :dimension
+      post :dimension
       post :hide
     end
   end
