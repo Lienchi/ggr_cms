@@ -45,7 +45,7 @@
                     if  ( category[i] == "1" ) {
                       l = 0;
                       while(l < tags.length){
-                        if(tags[l].id == tag_id){
+                        if(tags[l].attributes.getNamedItem("saver_id").nodeValue == tag_id){
                           tags[l].innerHTML = row[k]; 
                         }
                         l++;
@@ -53,7 +53,7 @@
                     } else if ( category[i] == "2") {
                       l = 0;
                       while(l < tags.length){
-                        if(tags[l].id == tag_id){
+                        if(tags[l].attributes.getNamedItem("saver_id").nodeValue == tag_id){
                           var img = document.createElement("img");
                           tags[l].appendChild(img);
                           tags[l].childNodes[0].src = row[k];
@@ -63,7 +63,7 @@
                     } else {
                       l = 0;
                       while(l < tags.length){
-                        if(tags[l].id == tag_id){
+                        if(tags[l].attributes.getNamedItem("saver_id").nodeValue == tag_id){
                           var iframe = document.createElement("iframe");
                           tags[l].appendChild(iframe);
                           tags[l].childNodes[0].src = row[k];
