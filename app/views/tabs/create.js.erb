@@ -1,3 +1,2 @@
-var tab = document.createElement("div");
+var tab =  document.getElementById("tabs");
 tab.innerHTML = "<%= j render(:partial => "tab", :locals => {:tabs => session["tabs"]}) %>";
-$("body").append(tab);

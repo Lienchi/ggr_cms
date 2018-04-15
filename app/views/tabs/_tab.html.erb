@@ -1,18 +1,23 @@
 <div class="show">
   <h1>All Sheets You Have</h1>
   <p>click the sheet title to expand the block and name the col/row by the XML tag you would like to use</p>
-  <% session["tabs"].each do |tab| %>
-    <div id = tab-<%= tab[:index]%> >
-      <div class="sheet-block">
-        <h3><%='Sheet ' +  "#{tab[:index] + 1}" + ' : ' + tab[:name] %></h3>
-        <div id= hide-<%= tab[:index]%>  >
-          <%= link_to tags_path(:index => tab[:index]), remote: true, method: :post  do %>
-            <span class="glyphicon glyphicon-chevron-down"></span>
-          <% end %>          
-        </div>
-      </div>           
-    </div>
-  <% end %>
+  <ul class="nav nav-pills nav-justified" role="tablist">
+    <% session["tabs"].each do |tab| %>
+      <li id = tab-<%= tab[:index]%> role="presentation" >
+        <div class="sheet-block">
+          <a href="#table-<%= tab[:index] %>" aria-controls="table-<%= tab[:index] %>" role="tab" data-toggle="tab"> 
+            <h3><%='Sheet ' +  "#{tab[:index] + 1}" + ' : ' + tab[:name] %></h3>
+          </a>
+          <div id= hide-<%= tab[:index]%>  >
+            <%= link_to tags_path(:index => tab[:index]), remote: true, method: :post  do %>
+              <span class="glyphicon glyphicon-chevron-down"></span>
+            <% end %>          
+          </div>
+        </div>           
+      </li>
+    <% end %>
+  </ul>
 </div>
 
 
+  

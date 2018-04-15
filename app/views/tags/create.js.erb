@@ -1,6 +1,4 @@
-var tags = document.createElement("div");
-tags.innerHTML = "<%= j render(:partial => "tag", :locals => {:columns => @columns, :tab_index => @tab_index}) %>";
-$("#tab-<%= @tab_index %>").append(tags);
+ $("#tags").append("<%= j render(:partial => "tag", :locals => {:columns => @columns, :tab_index => @tab_index}) %>");
 $(".delete").hide();
 
 $("#hide-<%= @tab_index %>").html("<%= j render(:partial => "tabs/hide", :locals => {:tab_index => @tab_index, :hide => @hide} ) %>");
