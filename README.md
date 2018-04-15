@@ -16,7 +16,7 @@ Completed:
   
 In progress:
   1. 希望把網站改成AJAX<br>
-  2. 重構程式碼<br>
+  2. 重構程式碼(使用者輸入的資料不透過model存取,還在branch)<br>
   3. 改變資料存法以增進效能<br>
   4. 部署上已購買的網域（但現在連heroku的部分也不能使用，因為我們把要用到的api key gitignore，所以直接部署上去會產生錯誤）<br>
   5. 調整CSS樣式<br>
