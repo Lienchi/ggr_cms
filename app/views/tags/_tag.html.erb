@@ -14,7 +14,7 @@
   <tbody>
     <% @columns.each do |column| %>
       <tr class="col-<%= column[:index] %>">
-        <%= render(:partial => "row", :locals => {:column => column}) %>
+        <%= render(:partial => "tags/row", :locals => {:column => column}) %>
       </tr>
     <% end %>
   </tbody>
