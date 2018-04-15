@@ -1,4 +1,4 @@
 $("#tags").append("<%= j render(:partial => "tag", :locals => {:columns => @columns, :tab_index => @tab_index}) %>");
 $("#tab-<%= @tab_index %>").html("<%= j render(:partial => "tabs/tab_btn", :locals => {:tab_index => @tab_index } ) %>");
-$("#table-<%= @tab_index %>").siblings().hide();
+$("#table-<%= @tab_index %>").siblings(".table").hide();
 $(".delete").hide();
