@@ -1,0 +1,123 @@
+<div class="js" >
+  <h1>Embed this in your HTML file !</h1>
+
+  <div class="js-pack" id="clip-this">
+    <p>
+      &lt;script type="text/javascript">
+        var CLIENT_ID = '673381173216-1cg3p0mqapitdm647sqtn8umspgnncln';
+        var API_KEY = 'AIzaSyBejq9v2EcnUSjL5aR5CJ2jpOn_NL3oHoA';
+        var DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
+        var SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
+
+        function handleClientLoad() {
+          gapi.load('client:auth2', initClient);
+        }
+
+        function initClient() {
+          gapi.client.init({
+            apiKey: API_KEY,
+            clientId: CLIENT_ID,
+            discoveryDocs: DISCOVERY_DOCS,
+            scope: SCOPES
+          }).then(function () {
+            putItIn(</p><p><%=   %></p><p>);
+          });
+        }
+            
+        function putItIn(spreadsheet_id, ranges, tag_name, category) {
+          gapi.client.sheets.spreadsheets.values.batchGet({
+            spreadsheetId: spreadsheet_id,
+            ranges: ranges,
+          }).then(function(response) {
+            var result = response.result;
+            if (result.valueRanges.length > 0) {
+              for (i = 0; i < result.valueRanges.length; i++) {
+                for (j = 0; j < result.valueRanges[i].values.length; j++) {
+                  
+                  var row = result.valueRanges[i].values[j];
+                  var tags = document.getElementsByTagName(tag_name[i]);
+                  var col_or_row = ranges[i].split(":");
+
+                  for (k = 0; k < row.length; k++) {
+
+                    var tag_id;
+                    Number(col_or_row[1]) ? tag_id = k : tag_id = j; 
+                    if  ( category[i] == "1" ) {
+                      l = 0;
+                      while(l < tags.length){
+                        if(tags[l].id == tag_id){
+                          tags[l].innerHTML = row[k]; 
+                        }
+                        l++;
+                      }
+                    } else if ( category[i] == "2") {
+                      l = 0;
+                      while(l < tags.length){
+                        if(tags[l].id == tag_id){
+                          var img = document.createElement("img");
+                          tags[l].appendChild(img);
+                          tags[l].childNodes[0].src = row[k];
+                        }
+                        l++;
+                      }
+                    } else {
+                      l = 0;
+                      while(l < tags.length){
+                        if(tags[l].id == tag_id){
+                          var iframe = document.createElement("iframe");
+                          tags[l].appendChild(iframe);
+                          tags[l].childNodes[0].src = row[k];
+                        }
+                        l++;
+                      }
+                    }
+                  }
+                }
+              }
+            } else {
+              document.getElementsByTagName(tag_name[i])[0].innerHTML = 'No data found.';
+            }
+          }, function(response) {
+            var textnode = document.createTextNode('Error: ' + response.result.error.message);
+            document.getElementsByTagName(tag_name[i])[0].parentNode.appendChild(textnode);
+          });
+        }
+      &lt;/script>
+    
+      &lt;script async defer src="https://apis.google.com/js/api.js"
+        onload="this.onload=function(){};handleClientLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+      &lt;/script>
+    </p>
+  </div>
+
+  <div>
+    <button class="clipboard-btn" data-clipboard-action="copy" data-clipboard-target="#clip-this">Copy</button>
+    <a href="/">Link A New Spreadsheet</a>
+  </div>
+</div>
+
+
+
+<script>
+  function SelectText(element) {
+  var doc = document,
+    text = doc.getElementById(element),
+    range, selection;
+  if (doc.body.createTextRange) {
+    range = document.body.createTextRange();
+    range.moveToElementText(text);
+    range.select();
+  } else if (window.getSelection) {
+    selection = window.getSelection();
+    range = document.createRange();
+    range.selectNodeContents(text);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }
+}
+
+document.getElementById('js-pack').addEventListener('click', function() {
+  SelectText('js-pack');
+});
+</script>
