@@ -11,11 +11,7 @@ class TabsController < ApplicationController
   end
  
   def hide
-    if params[:hide] == "hide"
-      @hide =  "unhide"
-    else
-      @hide =  "hide"
-    end  
+ 
     @tab_index = params[:tab_index]
     #render plain: @hide
   end
