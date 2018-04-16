@@ -22,14 +22,9 @@ class TagsController < ApplicationController
   def destroy
     @column = params[:column]
     session["js"][ @column[:tab_id]].delete(@column[:index])
-    render plain: session["js"]
   end
 
-  # def test
  
-  #   render plain: params[:column]["name"]
-  # end
-
 
   private
 

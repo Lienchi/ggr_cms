@@ -1,7 +1,7 @@
 class SpreadsheetsController < ApplicationController
   require 'google/apis/sheets_v4'
-  before_action :set_api, only: [:create, :js]
-  before_action :set_spreadsheet, only: [:show, :js, :pdf]
+  before_action :set_api, only: [:create ]
+  before_action :set_spreadsheet, only: [:show , :pdf]
   
   def new
     @spreadsheet = Spreadsheet.new
@@ -16,40 +16,58 @@ class SpreadsheetsController < ApplicationController
       redirect_to new_spreadsheet_path
     end  
   end
- 
-  def show
-    @tabs = @spreadsheet.tabs
 
-    #  @spreadsheed.name,有所有tags.col的陣列,有所有tags.name的陣列
-    output_arr = []
+  def js
+    @spreadsheet = session["spreadsheet_id"]
     @col_arr = []
     @name_arr = []
     @category_arr = []
-    @spreadsheet.tabs.each do |tab|
-      tab.tags.each do |tag|
-        unless tag.name.blank?
-          output_arr << tag
-        end  
-      end 
-    end
-    output_arr.each do |x|
-      @col_arr << x.tab.name + "!" + x.col_range+":"+ x.col_range
-      @name_arr << x.name
-      @category_arr << x.category_id
+    session["js"].each do |key, value|
+      value.each do |k,v|
+        @name_arr << session["js"][key][k]["name"]
+        @col_arr << session["js"][key][k]["range"]
+        @category_arr << session["js"][key][k]["type"]
+      end
     end
   end
 
-  def pdf
-    @output_arr = []
-    @spreadsheet.tabs.each do |tab|
-      tab.tags.each do |tag|
-        unless tag.name.blank?
-          @output_arr << tag
-        end  
-      end 
-    end
-    render pdf: "./wkhtmltopdf test.html test.pdf" , encoding: 'utf8'
-  end
+
+
+
+ 
+  # def show
+  #   @tabs = @spreadsheet.tabs
+
+  #   #  @spreadsheed.name,有所有tags.col的陣列,有所有tags.name的陣列
+  #   output_arr = []
+  #   @col_arr = []
+  #   @name_arr = []
+  #   @category_arr = []
+  #   @spreadsheet.tabs.each do |tab|
+  #     tab.tags.each do |tag|
+  #       unless tag.name.blank?
+  #         output_arr << tag
+  #       end  
+  #     end 
+  #   end
+  #   output_arr.each do |x|
+  #     @col_arr << x.tab.name + "!" + x.col_range+":"+ x.col_range
+  #     @name_arr << x.name
+  #     @category_arr << x.category_id
+  #   end
+  # end
+
+  # def pdf
+  #   @output_arr = []
+  #   @spreadsheet.tabs.each do |tab|
+  #     tab.tags.each do |tag|
+  #       unless tag.name.blank?
+  #         @output_arr << tag
+  #       end  
+  #     end 
+  #   end
+  #   render pdf: "./wkhtmltopdf test.html test.pdf" , encoding: 'utf8'
+  # end
 
 
   private

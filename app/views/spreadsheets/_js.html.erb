@@ -20,10 +20,10 @@
             discoveryDocs: DISCOVERY_DOCS,
             scope: SCOPES
           }).then(function () {
-            putItIn(</p><p><%=   %></p><p>);
+            putItIn(</p><p><%= "'"+ spreadsheet +"'" %>,<%= col_arr %>,<%= name_arr %>, <%= category_arr %></p><p>);
           });
         }
-            
+   
         function putItIn(spreadsheet_id, ranges, tag_name, category) {
           gapi.client.sheets.spreadsheets.values.batchGet({
             spreadsheetId: spreadsheet_id,

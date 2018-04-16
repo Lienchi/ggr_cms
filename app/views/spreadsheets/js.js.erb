@@ -1,1 +1,2 @@
-$("#js").html("<%= j render(:partial => "js", :locals => { }) %>");
+$("#js").html("<%= j render(:partial => "js", :locals => {:spreadsheet => @spreadsheet, :col_arr => @col_arr, :name_arr=> @name_arr, :category_arr => @category_arr  }) %>");
+ 
