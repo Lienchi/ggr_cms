@@ -3,7 +3,7 @@
     <div class="form-group">
       <% if column[:xml_name].blank? %>
         <span class="ok">
-          <%= f.text_field :xml_name, placeholder: " Name your XML tag", class: "my-input"  %>
+          <%= f.text_field :xml_name, placeholder: " Name your XML tag", class: "my-input", required: true %>
           <%= f.collection_select :category_id, Category.all, :id, :name, {}, {class: "form-control"} %>
           <%= f.hidden_field :index, value: "#{column[:index]}" %>
           <%= f.hidden_field :tab_id, value: "#{column[:tab_id]}" %>

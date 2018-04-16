@@ -9,7 +9,7 @@
  
   <%= form_for :spreadsheet, :url => tabs_path, remote: true  do |form|  %>
     <div class="form-group">
-      <%= form.text_field :spreadsheet_url, autofocus: true, placeholder: "Which spreadsheet ?" %>
+      <%= form.text_field :spreadsheet_url, autofocus: true, placeholder: "Which spreadsheet ?", required: true, pattern: "[A-Za-z0-9_]{44}", title: "請輸入有效的 Google Spreadsheet Id" %>
     </div>
     <%= form.submit "NEXT" ,  data: { disable_with: "Loading..." } %>
   <% end  %>  

@@ -1,7 +1,6 @@
  <table class="table table-hover" id = "table-<%= tab_index %>" >
   <thead>
     <tr>
-      <th>Index</th>
       <th>
         <% if session["tabs"][tab_index.to_i]["dimension"] == "ROWS" %>
           Column
@@ -10,7 +9,7 @@
         <% end %>
       </th>
       <th>Data Type</th>
-      <th>XML Tag</th>
+      <th id="xml-<%= tab_index %>">XML tag</th>
       <th></th>
     </tr>    
   </thead>
