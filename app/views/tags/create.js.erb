@@ -6,3 +6,4 @@ $("#table-<%= @tab_index %>").siblings(".table").hide();
 $("#dimension-btn").append("<%= j render(:partial => "tabs/dimension", :locals => {:tab_index => @tab_index } ) %>");
 $("#dimension-<%= @tab_index %>").siblings(".dimension").hide();
 $(".delete").hide();
+$("#xml-<%= @tab_index %>").hide();

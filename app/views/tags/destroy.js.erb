@@ -4,4 +4,7 @@ var clear = $("#table-<%= @column[:tab_id]%>  > tbody > .col-<%= @column[:index]
 $(col_tds[3]).html("");
 $(ok).show();
 $(clear).hide();
- 
+
+<% if session["js"][@column[:tab_id].to_i] == nil %> 
+  $("#xml-<%= @column[:tab_id] %>").hide();
+<% end %>

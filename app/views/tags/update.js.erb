@@ -10,3 +10,4 @@ $(clear).show();
 $(clear).on("click", function(event) {
   $('#table-<%= @column[:tab_id]%>  > tbody > .col-<%= @column[:index] %> .my-input').val("");
 });
+$("#xml-<%= @column[:tab_id] %>").show();
