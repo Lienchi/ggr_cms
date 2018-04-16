@@ -6,8 +6,7 @@
     <p>Click the button to select whether the data is going to read in columns or row.</p>
     <p>Give the column/row a name of XML tag which you will use in your HTML file.</p>
   </div>
-  <p>click the sheet title to expand the block and name the col/row by the XML tag you would like to use</p>
-  <ul class="nav nav-tabs"  ">
+  <ul class="nav nav-tabs" >
     <% session["tabs"].each do |tab| %>
       <li id = tab-<%= tab[:index]%>>
         <%= link_to tags_path(:index => tab[:index]), remote: true, method: :post, data: { disable_with: "Loading..." }  do %>
