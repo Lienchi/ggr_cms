@@ -10,7 +10,7 @@ body {
 
 a, a:hover, a:focus {
   text-decoration: none;
-  color: #323237;
+  color: #333947;
 }
 
 ul, ol {
@@ -18,6 +18,12 @@ ul, ol {
   margin: 0px;
   padding: 0px;
 }
+
+.clearfix::after{
+  content: ' ';
+  display: table;
+  clear: both;
+ }
 
 .remind{
   font-size: 15px;
@@ -50,7 +56,7 @@ nav{
 }
 
 img{
-  width: 50px;
+  width: 30px;
   margin: 10px 50px;
 }
 
@@ -104,7 +110,7 @@ img{
 
 .type-id > form > input{
   width: 15%;
-  padding: 0.7%;
+  padding: 0.6%;
   font-size: 18px;
   color: #333947;
   border-radius: 0 30px 30px 0;
@@ -129,13 +135,13 @@ img{
   color: #6c6c6c;
 }
 
-.show{
+#tabs{
   margin-top: 7%;
+  height: 70vh;
 }
 
 .show > h1, .js > h1{
   text-align: center;
-  
 }
 
 .show > p{
@@ -150,6 +156,11 @@ img{
   font-size: 17px;
   border-radius: 30px;
   margin: 0 auto;
+}
+
+#tags{
+  width: 70%;
+  margin: auto;
 }
 
 .pdf-btn{
@@ -208,6 +219,20 @@ img{
 
 .delete-btn:hover{
   color: #fff;
+}
+
+#js{
+  text-align: center;
+}
+
+#js > a{
+  display: inline-block;
+  margin: 0 auto;
+  padding: 5px 20px;
+  font-size: 18px;
+  color: #333947;
+  border-radius: 30px;
+  border: 2px solid #333947;
 }
 
 .js{
