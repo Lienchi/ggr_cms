@@ -51,9 +51,31 @@ img{
 
 .type-id{
   width: 100vw;
-  position: absolute;
-  top: 15%;
   text-align: center;
+  
+}
+
+.instruction{
+  width: 80%;
+  margin: 30px auto;
+  background-color: rgba(51, 57, 71, 0.3);
+  color: #333947;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: left;
+  font-size: 20px;
+}
+
+.instruction p:nth-child(1){
+  font-size: 30px;
+  color: #efefef;
+  font-weight: 900;
+}
+
+.instruction span{
+  background-color: #efefef;
+  border-radius: 5px;
+  padding: 1px;
 }
 
 .type-id > form > .form-group{
@@ -108,10 +130,6 @@ img{
   text-align: center;
   font-size: 20px;
   margin-bottom: 4%;
-}
-
-.show >div, .js > div{
-  text-align: center;
 }
 
 .show > div > a, .js >div > a, .js > div > button{
