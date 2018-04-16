@@ -15,11 +15,14 @@ class TagsController < ApplicationController
 
   def update
     @column = params[:column]
+    session["js"][ @column[:tab_id]][@column[:index]] = {name: @column[:xml_name], range: session["tabs"][@column[:tab_id].to_i]["name"]+"!"+ @column[:range]+ ":" +@column[:range] , type: @column[:category_id]}
   end
+ 
 
   def destroy
     @column = params[:column]
-    #render plain: params
+    session["js"][ @column[:tab_id]].delete(@column[:index])
+    render plain: session["js"]
   end
 
   # def test

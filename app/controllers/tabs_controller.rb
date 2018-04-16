@@ -6,9 +6,12 @@ class TabsController < ApplicationController
   def create
     session["spreadsheet_id"] = params[:spreadsheet][:spreadsheet_url]
     session["tabs"] = []
+    session["js"] = {}
     @service.get_spreadsheet(session["spreadsheet_id"], fields: "sheets.properties").sheets.each_with_index do |tab, index|
       session["tabs"] << { index: index, name: tab.properties.title, dimension: "ROWS" } 
+      session["js"][index] = {}
     end
+
   end
  
   def hide
