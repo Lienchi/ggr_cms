@@ -1,15 +1,11 @@
-<nav><img src="logo.png"></nav>
-
-<div id="spreadsheet" class="type-id">
-  <div class="instruction">
-    <p>HOW TO USE - Step 1</p>
-    <p>Please enter the string between <span>"https://docs.google.com/spreadsheets/d/"</span> and <span>"/edit#gid=0"</span> in your spreadsheet URL.</p>
-  </div>
+ 
+<div id="spreadsheet"  >
+ 
   <%= form_for :spreadsheet, :url => tabs_path, remote: true  do |form|  %>
     <div class="form-group">
-      <%= form.text_field :spreadsheet_url, autofocus: true, placeholder: 'Which spreadsheet?' %>
+      <%= form.text_field :spreadsheet_url, autofocus: true, placeholder: "Which spreadsheet ?" %>
     </div>
-    <%= form.submit "NEXT"  %>
+    <%= form.submit "NEXT" ,  data: { disable_with: "Loading..." } %>
   <% end  %>  
 </div>
  

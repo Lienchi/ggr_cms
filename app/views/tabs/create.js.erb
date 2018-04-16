@@ -3,4 +3,4 @@ tab.innerHTML = "<%= j render(:partial => "tab", :locals => {:tabs => session["t
 
  
  
-$("#js").html("<%=j link_to "JS", js_spreadsheets_path, remote: true  %>");
+$("#js").html("<%=j link_to "JS", js_spreadsheets_path, remote: true , data: { disable_with: "Loading..." } %>");

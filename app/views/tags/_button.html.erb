@@ -8,10 +8,10 @@
           <%= f.hidden_field :index, value: "#{column[:index]}" %>
           <%= f.hidden_field :tab_id, value: "#{column[:tab_id]}" %>
           <%= f.hidden_field :range, value: "#{column[:range]}" %>
-          <%= f.submit 'OK', class: "ok-btn" %>          
+          <%= f.submit 'OK', class: "ok-btn"  %>          
         </span>
         <span class="delete">
-          <%= link_to 'Delete', tags_path( column: {xml_name: nil, category_id: 1, index: "#{column[:index]}", tab_id: "#{column[:tab_id]}"}), method: :delete, remote: true, class: "delete-btn" %>
+          <%= link_to 'Delete', tags_path( column: {xml_name: nil, category_id: 1, index: "#{column[:index]}", tab_id: "#{column[:tab_id]}"}), method: :delete, remote: true, class: "delete-btn"  %>
         </span>
       <% end %>
     </div>
