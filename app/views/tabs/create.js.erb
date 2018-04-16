@@ -1,3 +1,6 @@
 var tab =  document.getElementById("tabs");
 tab.innerHTML = "<%= j render(:partial => "tab", :locals => {:tabs => session["tabs"]}) %>";
+
  
+ 
+$("#js").html("<%=j link_to "JS", js_spreadsheets_path, remote: true  %>");
