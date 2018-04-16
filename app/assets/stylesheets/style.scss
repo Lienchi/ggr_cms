@@ -1,5 +1,5 @@
 body {
-  background-color: #f9f9f9;
+  background-color: #efefef;
   margin: 0;
 }
 
@@ -51,6 +51,10 @@ div.notice{
   font-weight: 900;
 }
 
+nav{
+  background-color: #333947;
+}
+
 img{
   width: 30px;
   margin: 10px 50px;
@@ -88,16 +92,16 @@ img{
 .type-id > form > .form-group{
   margin: 0;
   display: inline-block;
-  width: 30%;
+  width: 60%;
 }
 
 .type-id > form > .form-group input{
   width:100%;
-  padding: 3.5%;
-  font-size: 30px;
+  padding: 1%;
+  font-size: 18px;
   outline: none;
   border-radius: 30px 0 0 30px;
-  border: 2px solid #000;
+  border: 2px solid #333947;
 }
 
 ::placeholder{
@@ -110,8 +114,14 @@ img{
   font-size: 18px;
   color: #333947;
   border-radius: 0 30px 30px 0;
-  border: 2px solid #000;
+  border: 2px solid #333947;
   display: inline-block;
+}
+
+.type-id > form > input:hover{
+  background-color: #333947;
+  color: #fff;
+  transition: 0.3s linear;
 }
 
 .after-rendering{
