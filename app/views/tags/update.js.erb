@@ -3,8 +3,8 @@ var col_tds = $("#table-<%= @column[:tab_id]%>  > tbody > .col-<%= @column[:inde
 var ok = $("#table-<%= @column[:tab_id]%>  > tbody > .col-<%= @column[:index] %>  .ok");
 var clear = $("#table-<%= @column[:tab_id]%>  > tbody > .col-<%= @column[:index] %> .delete "); 
 
-$(col_tds[2]).html( "<%= Category.find(@column[:category_id]).name %>");
-$(col_tds[3]).html( "<%= @column[:xml_name]%> ");
+$(col_tds[1]).html( "<%= Category.find(@column[:category_id]).name %>");
+$(col_tds[2]).html( "<%= @column[:xml_name]%> ");
 $(ok).hide();
 $(clear).show();
 $(clear).on("click", function(event) {
