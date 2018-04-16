@@ -61,13 +61,11 @@ img{
 }
 
 .type-id{
-  width: 100vw;
+  padding: 0 10%;
   text-align: center;
-  
 }
 
 .instruction{
-  width: 80%;
   margin: 30px auto;
   background-color: rgba(51, 57, 71, 0.3);
   color: #333947;
@@ -136,8 +134,8 @@ img{
 }
 
 #tabs{
-  margin-top: 7%;
-  height: 70vh;
+  margin-top: 10%;
+  padding: 0 10%;
 }
 
 .show > h1, .js > h1{
@@ -204,7 +202,7 @@ img{
 }
 
 .ok-btn{
-  border: 2px solid #323237;
+  border: 2px solid #333947;
   border-radius: 15px;
   padding: 5px 20px;
 }
@@ -221,13 +219,11 @@ img{
   color: #fff;
 }
 
-#js{
-  text-align: center;
+#dimension-btn{
+  margin: 30px;
 }
 
-#js > a{
-  display: inline-block;
-  margin: 0 auto;
+.dimension a{
   padding: 5px 20px;
   font-size: 18px;
   color: #333947;
@@ -235,14 +231,41 @@ img{
   border: 2px solid #333947;
 }
 
+.dimension a:hover{
+  background-color: #333947;
+  color: #fff;
+  transition: 0.3s linear;
+}
+
+#js{
+  text-align: center;
+}
+
+#js > a{
+  display: inline-block;
+  margin: 20px auto;
+  padding: 5px 20px;
+  font-size: 18px;
+  color: #333947;
+  border-radius: 30px;
+  border: 2px solid #333947;
+}
+
+#js > a:hover{
+  background-color: #333947;
+  color: #fff;
+  transition: 0.3s linear;
+}
+
 .js{
   margin-top: 15%;
+  padding: 0 10%;
 }
 
 .js-pack{
   margin: auto;
   margin-bottom: 5%;
-  width: 60%;
+  width: 80%;
   border: 1px solid #323237;
   border-radius: 30px;
   padding: 2%;
