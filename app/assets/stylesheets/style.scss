@@ -1,5 +1,5 @@
 body {
-  background-color: #efefef;
+  background-color: #f9f9f9;
   margin: 0;
 }
 
@@ -45,58 +45,30 @@ div.notice{
   font-weight: 900;
 }
 
-nav{
-  background-color: #333947;
-}
-
 img{
-  width: 50px;
-  margin: 10px 50px;
+  margin-bottom: 30px;
 }
 
 .type-id{
   width: 100vw;
-  height: 70vh;
+  position: absolute;
+  top: 15%;
   text-align: center;
-  color: #000;
-  font-size: 20px;
-}
-
-.instruction{
-  width: 80%;
-  margin: 30px auto;
-  background-color: rgba(51, 57, 71, 0.3);
-  color: #333947;
-  border-radius: 15px;
-  padding: 20px;
-  text-align: left;
-}
-
-.instruction p:nth-child(1){
-  font-size: 30px;
-  color: #efefef;
-  font-weight: 900;
-}
-
-.instruction span{
-  background-color: #efefef;
-  border-radius: 5px;
-  padding: 1px;
 }
 
 .type-id > form > .form-group{
   margin: 0;
   display: inline-block;
-  width: 60%;
+  width: 30%;
 }
 
 .type-id > form > .form-group input{
   width:100%;
-  padding: 1%;
-  font-size: 18px;
+  padding: 3.5%;
+  font-size: 30px;
   outline: none;
   border-radius: 30px 0 0 30px;
-  border: 2px solid #333947;
+  border: 2px solid #000;
 }
 
 ::placeholder{
@@ -105,18 +77,11 @@ img{
 
 .type-id > form > input{
   width: 15%;
-  padding: 0.7%;
-  font-size: 18px;
-  color: #333947;
+  padding: 1%;
+  font-size: 30px;
   border-radius: 0 30px 30px 0;
-  border: 2px solid #333947;
+  border: 2px solid #000;
   display: inline-block;
-}
-
-.type-id > form > input:hover{
-  background-color: #333947;
-  color: #fff;
-  transition: 0.3s linear;
 }
 
 .after-rendering{
