@@ -74,7 +74,7 @@ class SpreadsheetsController < ApplicationController
 
   def set_api
     @service = Google::Apis::SheetsV4::SheetsService.new
-    @service.key = Rails.application.config_for(:api)["api_key"]
+    @service.key = "AIzaSyCw1eTY-S9Xuxqv4AZ_bfHDlxEJ3KsLuig"
     @service.authorization = nil
   end
 
