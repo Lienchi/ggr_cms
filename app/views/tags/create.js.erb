@@ -1,5 +1,7 @@
 $("#tags").append("<%= j render(:partial => "tag", :locals => {:columns => @columns, :tab_index => @tab_index}) %>");
 $("#tab-<%= @tab_index %>").html("<%= j render(:partial => "tabs/tab_btn", :locals => {:tab_index => @tab_index } ) %>");
+$("#tab-<%= @tab_index %>").addClass("active");
+$("#tab-<%= @tab_index %>").siblings().removeClass("active");
 $("#table-<%= @tab_index %>").siblings(".table").hide();
 $("#dimension-btn").append("<%= j render(:partial => "tabs/dimension", :locals => {:tab_index => @tab_index } ) %>");
 $("#dimension-<%= @tab_index %>").siblings(".dimension").hide();

@@ -7,13 +7,11 @@
     <p>Give the column/row a name of XML tag which you will use in your HTML file.</p>
   </div>
   <p>click the sheet title to expand the block and name the col/row by the XML tag you would like to use</p>
-  <ul class="nav nav-pills nav-justified" role="tablist">
+  <ul class="nav nav-tabs"  ">
     <% session["tabs"].each do |tab| %>
       <li id = tab-<%= tab[:index]%>>
-        <%= link_to tags_path(:index => tab[:index]), remote: true, method: :post  do %>
-          <div class="sheet-block">
-            <h3><%='Sheet ' +  "#{tab[:index] + 1}" + ' : ' + tab[:name] %></h3>
-          </div>
+        <%= link_to tags_path(:index => tab[:index]), remote: true, method: :post, data: { disable_with: "Loading..." }  do %>
+          <h3><%='Sheet ' +  "#{tab[:index] + 1}" + ' : ' + tab[:name] %></h3>
         <% end %>             
       </li>
     <% end %>

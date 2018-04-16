@@ -1,2 +1,8 @@
 $("#table-<%= @tab_index %>").remove();
 $("#tags").append("<%= j render(:partial => "tags/tag", :locals => {:columns => @columns, :tab_index => @tab_index}) %>");
+
+$("#dimension-<%= @tab_index %>").remove();
+$("#dimension-btn").append("<%= j render(:partial => "tabs/dimension", :locals => {:tab_index => @tab_index } ) %>");
+
+
+$(".delete").hide();
