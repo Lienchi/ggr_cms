@@ -5,7 +5,6 @@ class TagsController < ApplicationController
 
   def create
     @tab_index = params[:index]
-    @hide = "hide" 
     range = ("A".."ZZ").to_a
     @columns =[]
     @service.get_spreadsheet_values(session["spreadsheet_id"], session["tabs"][@tab_index.to_i]["name"]).values[0].each_with_index do |column, index|
@@ -16,18 +15,16 @@ class TagsController < ApplicationController
 
   def update
     @column = params[:column]
+    session["js"][ @column[:tab_id]][@column[:index]] = {name: @column[:xml_name], range: session["tabs"][@column[:tab_id].to_i]["name"]+"!"+ @column[:range]+ ":" +@column[:range] , type: @column[:category_id]}
   end
+ 
 
   def destroy
     @column = params[:column]
-    #render plain: params
+    session["js"][ @column[:tab_id]].delete(@column[:index])
   end
 
-  # def test
  
-  #   render plain: params[:column]["name"]
-  # end
-
 
   private
 

@@ -4,6 +4,4 @@ var clear = $("#table-<%= @column[:tab_id]%>  > tbody > .col-<%= @column[:index]
 $(col_tds[5]).html("");
 $(ok).show();
 $(clear).hide();
-$(clear).on("click", function(event) {
-  $('#table-<%= @column[:tab_id]%>  > tbody > .col-<%= @column[:index] %> .my-input').val("");
-});
+ 
