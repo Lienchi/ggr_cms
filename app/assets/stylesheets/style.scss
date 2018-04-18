@@ -237,11 +237,11 @@ img{
   transition: 0.3s linear;
 }
 
-#js{
+#tags-btn{
   text-align: center;
 }
 
-#js > a{
+#tags-btn > a{
   display: inline-block;
   margin: 20px auto;
   padding: 5px 20px;
@@ -251,7 +251,32 @@ img{
   border: 2px solid #333947;
 }
 
-#js > a:hover{
+#tags-btn > a:hover{
+  background-color: #333947;
+  color: #fff;
+  transition: 0.3s linear;
+}
+
+#tags-btn{
+  margin-top: 15%;
+  padding: 0 10%;
+}
+
+#js{
+  text-align: center;
+}
+
+#js  a{
+  display: inline-block;
+  margin: 20px auto;
+  padding: 5px 20px;
+  font-size: 18px;
+  color: #333947;
+  border-radius: 30px;
+  border: 2px solid #333947;
+}
+
+#js  a:hover{
   background-color: #333947;
   color: #fff;
   transition: 0.3s linear;

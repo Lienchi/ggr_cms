@@ -1,5 +1,5 @@
 var tab =  document.getElementById("sheet-title");
 tab.innerHTML = "<%= j render(:partial => "tab", :locals => {:tabs => session["tabs"]}) %>";
 
-$("#js").html("<%=j link_to "GET JS", js_spreadsheets_path, remote: true , data: { disable_with: "Loading..." } %>");
+$("#tags-btn").html("<%=j link_to "GET JS", js_spreadsheets_path, remote: true , data: { disable_with: "Loading..." } %>");
 
