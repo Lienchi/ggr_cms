@@ -1,7 +1,6 @@
 class SpreadsheetsController < ApplicationController
   require 'google/apis/sheets_v4'
   before_action :set_api, only: [:create ]
-  before_action :set_spreadsheet, only: [:show , :pdf]
   
   def new
     @spreadsheet = Spreadsheet.new
@@ -35,6 +34,9 @@ class SpreadsheetsController < ApplicationController
     
   end
 
+  def pdf
+    render plain: session["js"]
+  end
 
 
  
@@ -60,17 +62,7 @@ class SpreadsheetsController < ApplicationController
   #   end
   # end
 
-  # def pdf
-  #   @output_arr = []
-  #   @spreadsheet.tabs.each do |tab|
-  #     tab.tags.each do |tag|
-  #       unless tag.name.blank?
-  #         @output_arr << tag
-  #       end  
-  #     end 
-  #   end
-  #   render pdf: "./wkhtmltopdf test.html test.pdf" , encoding: 'utf8'
-  # end
+
 
 
   private
