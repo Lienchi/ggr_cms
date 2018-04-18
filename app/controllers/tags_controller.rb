@@ -15,7 +15,7 @@ class TagsController < ApplicationController
 
   def update
     @column = params[:column]
-    session["js"][ @column[:tab_id]][@column[:index]] = {name: @column[:xml_name], range: session["tabs"][@column[:tab_id].to_i]["name"]+"!"+ @column[:range]+ ":" +@column[:range] , type: @column[:category_id]}
+    session["js"][ @column[:tab_id]][@column[:index]] = {xml_name: @column[:xml_name], range: session["tabs"][@column[:tab_id].to_i]["name"]+"!"+ @column[:range]+ ":" +@column[:range] , type: @column[:category_id], name: @column[:name]}
   end
  
 

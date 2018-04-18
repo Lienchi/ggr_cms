@@ -18,13 +18,13 @@ class SpreadsheetsController < ApplicationController
 
   def js
     @spreadsheet = session["spreadsheet_id"]
-    @col_arr = []
-    @name_arr = []
+    @col_range_arr = []
+    @xml_name_arr = []
     @category_arr = []
     session["js"].each do |key, value|
       value.each do |k,v|
-        @name_arr << session["js"][key][k]["name"]
-        @col_arr << session["js"][key][k]["range"]
+        @xml_name_arr << session["js"][key][k]["name"]
+        @col_range_arr << session["js"][key][k]["range"]
         @category_arr << session["js"][key][k]["type"]
       end
     end
@@ -35,7 +35,19 @@ class SpreadsheetsController < ApplicationController
   end
 
   def pdf
-    render plain: session["js"]
+    @col_range_arr = []
+    @xml_name_arr = []
+    @category_arr = []
+    @col_name_arr =[]
+    session["js"].each do |key, value|
+      value.each do |k,v|
+        @xml_name_arr << session["js"][key][k]["xml_name"]
+        @col_range_arr << session["js"][key][k]["range"]
+        @category_arr << session["js"][key][k]["type"]
+        @col_name_arr << session["js"][key][k]["name"]
+      end
+    end
+
   end
 
 

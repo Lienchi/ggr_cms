@@ -2,4 +2,6 @@ var tab =  document.getElementById("sheet-title");
 tab.innerHTML = "<%= j render(:partial => "tab", :locals => {:tabs => session["tabs"]}) %>";
 
 $("#tags-btn").html("<%=j link_to "GET JS", js_spreadsheets_path, remote: true , data: { disable_with: "Loading..." } %>");
+$("#tags-btn").append("<%=j link_to "PDF", pdf_spreadsheets_path , target: :_blank %> ");
 
+ 

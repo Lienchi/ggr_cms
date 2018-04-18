@@ -6,6 +6,7 @@
           <%= f.text_field :xml_name, placeholder: " Name your XML tag", class: "my-input", required: true %>
           <%= f.collection_select :category_id, Category.all, :id, :name, {}, {class: "form-control"} %>
           <%= f.hidden_field :index, value: "#{column[:index]}" %>
+          <%= f.hidden_field :name, value: "#{column[:name]}" %>
           <%= f.hidden_field :tab_id, value: "#{column[:tab_id]}" %>
           <%= f.hidden_field :range, value: "#{column[:range]}" %>
           <%= f.submit 'OK', class: "ok-btn"  %>          
