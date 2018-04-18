@@ -31,6 +31,9 @@ class SpreadsheetsController < ApplicationController
     end
   end
 
+  def copy
+    
+  end
 
 
 

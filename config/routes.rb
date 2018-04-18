@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     collection do
       get :pdf
       get :js
+      get :copy
     end    
   end
 

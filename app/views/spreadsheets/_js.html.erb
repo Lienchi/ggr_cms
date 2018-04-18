@@ -97,32 +97,15 @@
   </div>
 
   <div>
-    <button class="clipboard-btn" data-clipboard-action="copy" data-clipboard-target="#clip-this">Copy</button>
+    <%= link_to "Copy", copy_spreadsheets_path, remote: true, class: "clipboard-btn", data: { clipboard_action: 'copy',clipboard_target: "#clip-this" } %>
     <a href="/">Link A New Spreadsheet</a>
   </div>
 </div>
 
 
-
-<script>
-  function SelectText(element) {
-  var doc = document,
-    text = doc.getElementById(element),
-    range, selection;
-  if (doc.body.createTextRange) {
-    range = document.body.createTextRange();
-    range.moveToElementText(text);
-    range.select();
-  } else if (window.getSelection) {
-    selection = window.getSelection();
-    range = document.createRange();
-    range.selectNodeContents(text);
-    selection.removeAllRanges();
-    selection.addRange(range);
-  }
-}
-
-document.getElementById('js-pack').addEventListener('click', function() {
-  SelectText('js-pack');
-});
-</script>
+ 
+<!-- <script>
+  document.getElementsByClassName('clipboard-btn').addEventListener('click', function() {
+   $('.clipboard-btn').popover({content: "123321"});
+  });
+</script> -->
