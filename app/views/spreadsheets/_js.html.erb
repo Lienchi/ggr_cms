@@ -2,9 +2,9 @@
   <div class="instruction">
     <p>HOW TO USE - Step 3</p>
     <p>Click "COPY" and paste to your HTML file of your website.</p>
-    <p>Insert the XML tag with the attibute to your HTML file.</p>
+    <p>Insert the XML tag with the attibute called saver_id to your HTML file.</p>
+    <p>EX: &lt;promotion-img saver_id="1">&lt;/promotion-img>"</p>
   </div>
-  <h1>Embed this in your HTML file !</h1>
 
   <div class="js-pack" id="clip-this">
     <p>
@@ -98,7 +98,6 @@
 
   <div>
     <%= link_to "Copy", copy_spreadsheets_path, remote: true, class: "clipboard-btn", data: { clipboard_action: 'copy',clipboard_target: "#clip-this" } %>
-    <a href="/">Link A New Spreadsheet</a>
   </div>
 </div>
 

@@ -208,10 +208,10 @@ img{
 }
 
 .delete-btn{
-  border: 2px solid #008080;
+  border: 2px solid #668DFF;
   border-radius: 15px;
   padding: 8px 20px;
-  background-color: #008080;
+  background-color: #668DFF;
   color: #fff;
 }
 
@@ -258,7 +258,6 @@ img{
 }
 
 #tags-btn{
-  margin-top: 15%;
   padding: 0 10%;
 }
 
@@ -288,15 +287,22 @@ img{
 }
 
 .js-pack{
+  font-size: 16px;
   margin: auto;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
   width: 80%;
+  height: 40px;
+  overflow: scroll;
   border: 1px solid #323237;
-  border-radius: 30px;
-  padding: 2%;
+  border-radius: 10px;
+  padding: 2px;
   background-color: #fff;
 }
 
 #js-pack > p{
   display: inline;
+}
+
+#tags-btn a{
+  margin-left: 30px;
 }
