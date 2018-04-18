@@ -1,3 +1,2 @@
-class Category < ApplicationRecord
-  has_many :tags 
+class Category < ApplicationRecord 
 end
