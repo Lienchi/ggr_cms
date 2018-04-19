@@ -1,0 +1,10 @@
+<span id= "dimension-<%= tab_index %>" class="dimension"  >
+  <%= link_to dimension_tabs_path(:tab_index => tab_index ), remote: true, method: :post, data: { disable_with: "Loading..." }  do %>
+    <% if session["tabs"][tab_index.to_i]["dimension"] == "ROWS" %>
+      ROW
+    <% else %>
+      COL
+    <% end %>
+  <% end %>        
+</span> 
+ 

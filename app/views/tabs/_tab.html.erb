@@ -1,0 +1,19 @@
+<div class="show">
+  <div class="instruction">
+    <p>HOW TO USE - Step 2</p>
+    <p>Click the sheet title to expand the block.</p>
+    <p>Click the button to select whether the data is going to read in columns or row.</p>
+    <p>Give the column/row a name of XML tag which you will use in your HTML file.</p>
+    <p>After naming all the XML tags you need, click "GET JS".</p>
+    <p>If you would like to get a pdf which lists all the XML tags and the corresponding data, click "GET PDF".</p>
+  </div>
+  <ul class="nav nav-tabs" >
+    <% session["tabs"].each do |tab| %>
+      <li id = tab-<%= tab[:index]%>>
+        <%= link_to tags_path(:index => tab[:index]), remote: true, method: :post, data: { disable_with: "Loading..." }  do %>
+          <p><%='Sheet ' +  "#{tab[:index] + 1}" + ' : ' + tab[:name] %></p>
+        <% end %>             
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -1,0 +1,20 @@
+<div class="form-inline">
+  <%= form_for :column, :url => tags_path, method: :patch, remote: true do |f| %>
+    <div class="form-group">
+      <% if column[:xml_name].blank? %>
+        <span class="ok">
+          <%= f.text_field :xml_name, placeholder: " Name your XML tag", class: "my-input", required: true %>
+          <%= f.collection_select :category_id, Category.all, :id, :name, {}, {class: "form-control"} %>
+          <%= f.hidden_field :index, value: "#{column[:index]}" %>
+          <%= f.hidden_field :name, value: "#{column[:name]}" %>
+          <%= f.hidden_field :tab_id, value: "#{column[:tab_id]}" %>
+          <%= f.hidden_field :range, value: "#{column[:range]}" %>
+          <%= f.submit 'OK', class: "ok-btn"  %>          
+        </span>
+        <span class="delete">
+          <%= link_to 'Delete', tags_path( column: {xml_name: nil, category_id: 1, index: "#{column[:index]}", tab_id: "#{column[:tab_id]}"}), method: :delete, remote: true, class: "delete-btn"  %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
+</div>

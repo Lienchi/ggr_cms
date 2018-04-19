@@ -1,0 +1,27 @@
+<nav><a href="/"><%= image_tag('/logo.png') %></a></nav>
+ 
+<div id="spreadsheet" class="type-id">
+  <div class="instruction">
+    <p>HOW TO USE - Step 1</p>
+    <p>Please enter the URL of your spreadsheet.</p>
+  </div>
+
+ 
+  <%= form_for :spreadsheet, :url => tabs_path, remote: true  do |form|  %>
+    <div class="form-group">
+      <%= form.text_field :spreadsheet_url, autofocus: true, placeholder: "Which spreadsheet ?", required: true %>
+    </div>
+    <%= form.submit "NEXT" ,  data: { disable_with: "Loading..." } %>
+  <% end  %>  
+</div>
+ 
+<div id="tabs">
+  <div id="sheet-title"></div>
+  <div id="tags">
+    <div id="dimension-btn"></div>
+  </div>
+  <div id="tags-btn"></div>
+</div>
+
+<div id="js"></div>
+ 
