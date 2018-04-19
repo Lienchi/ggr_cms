@@ -11,7 +11,7 @@
     <% session["tabs"].each do |tab| %>
       <li id = tab-<%= tab[:index]%>>
         <%= link_to tags_path(:index => tab[:index]), remote: true, method: :post, data: { disable_with: "Loading..." }  do %>
-          <h3><%='Sheet ' +  "#{tab[:index] + 1}" + ' : ' + tab[:name] %></h3>
+          <p><%='Sheet ' +  "#{tab[:index] + 1}" + ' : ' + tab[:name] %></p>
         <% end %>             
       </li>
     <% end %>

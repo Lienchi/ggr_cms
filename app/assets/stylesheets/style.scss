@@ -72,19 +72,14 @@ img{
   border-radius: 15px;
   padding: 20px;
   text-align: left;
-  font-size: 20px;
+  font-size: 15px;
+  width: 500px;
 }
 
 .instruction p:nth-child(1){
-  font-size: 30px;
+  font-size: 20px;
   color: #efefef;
   font-weight: 900;
-}
-
-.instruction span{
-  background-color: #efefef;
-  border-radius: 5px;
-  padding: 1px;
 }
 
 .type-id > form > .form-group{
@@ -227,6 +222,7 @@ img{
   padding: 5px 20px;
   font-size: 18px;
   color: #333947;
+  background-color: #fff;
   border-radius: 30px;
   border: 2px solid #333947;
 }
@@ -247,6 +243,7 @@ img{
   padding: 5px 20px;
   font-size: 18px;
   color: #333947;
+  background-color: #fff;
   border-radius: 30px;
   border: 2px solid #333947;
 }
@@ -271,6 +268,7 @@ img{
   padding: 5px 20px;
   font-size: 18px;
   color: #333947;
+  background-color: #fff;
   border-radius: 30px;
   border: 2px solid #333947;
 }
@@ -305,4 +303,32 @@ img{
 
 #tags-btn a{
   margin-left: 30px;
+}
+
+.nav-tabs p{
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.nav > li > a{
+  padding: 5px 10px;
+}
+
+.nav-tabs > li > a{
+  border-radius: 10px 10px 0 0;
+}
+
+.nav-tabs{
+  border-bottom: 1px solid #333947;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  color: #333947;
+  background-color: #efefef;
+  border: 1px solid #333947;
+  border-bottom: 1px solid #efefef;
+}
+
+.nav-tabs > li > a:hover{
+  border-bottom: none;
 }

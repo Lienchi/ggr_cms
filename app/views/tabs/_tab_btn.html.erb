@@ -1,4 +1,4 @@
 <%= link_to hide_tabs_path(:tab_index => tab_index), remote: true,  method: :post, data: { disable_with: "Loading..." }  do %>
-    <h3><%='Sheet ' +  "#{tab_index.to_i + 1}" + ' : ' + session["tabs"][tab_index.to_i]["name"] %></h3>
+    <p><%='Sheet ' +  "#{tab_index.to_i + 1}" + ' : ' + session["tabs"][tab_index.to_i]["name"] %></p>
 <% end %>
  
