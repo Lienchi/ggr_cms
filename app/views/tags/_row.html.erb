@@ -1,0 +1,8 @@
+ 
+<td><%= column[:name] %></td>
+<td><%= Category.find(column[:category_id]).name %></td>
+<td><%= column[:xml_name] %></td>
+<td>
+  <%= render(:partial => "tags/button", :locals => {:column => column}) %>
+</td>        
+ 

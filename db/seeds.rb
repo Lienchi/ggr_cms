@@ -10,7 +10,7 @@ Category.destroy_all
 cateogry_list = [
   { name: "文字" },
   { name: "圖片" },
-  { name: "連結" }
+  { name: "影片" }
 ]
 
 cateogry_list.each do |category|

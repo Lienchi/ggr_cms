@@ -8,12 +8,12 @@
     </tr>
   </th>
   <tbody>
-    <% @output_arr.each do |tag| %>
+    <% @col_name_arr.each_with_index do |column, index| %>
       <tr>
-        <td><%= tag.col %></td>
-        <td><%= tag.col_range %></td>
-        <td><%= tag.category_id %></td>
-        <td><%= tag.name %></td>
+        <td><%= column %></td>
+        <td><%= @col_range_arr[index] %></td>
+        <td><%= Category.find(@category_arr[index]).name %></td> 
+        <td><%= @xml_name_arr[index] %></td>
         <td>
     <% end %>      
   </tbody>

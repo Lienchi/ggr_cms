@@ -1,65 +1,10 @@
-<div class="show">
-  <h1>All Sheets You Have</h1>
-  <p>click the sheet title to expand the block and name the col/row by the XML tag you would like to use</p>
-
-  <% i = 1 %>
-  <% @tabs.each do |tab| %>
-    <div class="sheet-block">
-      <h3 data-toggle="collapse" data-target="#table-<%= i %>"><%='Sheet ' + i.to_s + ' : ' + tab.name %></h3>
-      <% if tab.dimension %>
-        <%= link_to "COL or row ", dimension_tab_path(tab), class: "btn" %>  
-      <% else %>    
-        <%= link_to "ROW or col", dimension_tab_path(tab), class: "btn" %>  
-      <%  end %>
-      <table class="table table-hover collapse" id = "table-<%= i %>">
-        <tr>
-          <% if tab.dimension %>
-            <th>欄</th>
-          <% else %>
-            <th>列</th>
-          <% end %>
-          <th>資料類型</th>
-          <% tab.tags.each do |tag| %>
-            <% if tag.name .blank? %>
-              <th></th>
-            <% else %>
-              <th>XML tag 名稱</th>
-            <% end %>
-          <% end %>
-          <th></th>
-        </tr>
-      
-        <% tab.tags.each do |tag| %>
-          <tr>
-            <td><%= tag.col %></td>
-            <td><%= tag.category.name %></td>
-            <td><%= tag.name %></td>
-            <td>
-              <div class="form-inline">
-                <%= form_for tag do |f| %>
-                  <div class="form-group">
-                    <% if tag.name .blank? %>
-                      <%= f.text_field :name, placeholder: " Name your XML tag" %>
-                      <%= f.collection_select :category_id, Category.all, :id, :name, {}, {class: "form-control"} %>
-                      <%= f.submit 'OK', class: "ok-btn" %>
-                    <% else %>
-                      <%= link_to 'Delete', tag_path(tag, tag: {name: nil}), method: :patch, class: "delete-btn" %>
-                    <% end %>
-                  </div>
-                <% end %>
-              </div>
-            </td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
-    <% i += 1 %>
-  <% end %>
-  <div class="pdf-btn"><%= link_to 'Save As PDF', pdf_spreadsheet_path(@spreadsheet) %></div>
-</div>
-
-<div class="js">
-  <h1>Embed this in your HTML file !</h1>
+<div class="js" >
+  <div class="instruction">
+    <p>HOW TO USE - Step 3</p>
+    <p>Click "COPY" and paste to your HTML file of your website.</p>
+    <p>Insert the XML tag with the attibute called saver_id to your HTML file.</p>
+    <p>EX: &lt;promotion-img saver_id="1">&lt;/promotion-img>"</p>
+  </div>
 
   <div class="js-pack" id="clip-this">
     <p>
@@ -80,10 +25,10 @@
             discoveryDocs: DISCOVERY_DOCS,
             scope: SCOPES
           }).then(function () {
-            putItIn(</p><p><%= "'"+@spreadsheet.name+"'" %>,<%= @col_arr %>,<%= @name_arr %>, <%= @category_arr %></p><p>);
+            putItIn(</p><p><%= "'"+ spreadsheet +"'" %>,<%= col_range_arr %>,<%= xml_name_arr %>, <%= category_arr %></p><p>);
           });
         }
-            
+   
         function putItIn(spreadsheet_id, ranges, tag_name, category) {
           gapi.client.sheets.spreadsheets.values.batchGet({
             spreadsheetId: spreadsheet_id,
@@ -105,7 +50,7 @@
                     if  ( category[i] == "1" ) {
                       l = 0;
                       while(l < tags.length){
-                        if(tags[l].id == tag_id){
+                        if(tags[l].attributes.getNamedItem("saver_id").nodeValue == tag_id){
                           tags[l].innerHTML = row[k]; 
                         }
                         l++;
@@ -113,7 +58,7 @@
                     } else if ( category[i] == "2") {
                       l = 0;
                       while(l < tags.length){
-                        if(tags[l].id == tag_id){
+                        if(tags[l].attributes.getNamedItem("saver_id").nodeValue == tag_id){
                           var img = document.createElement("img");
                           tags[l].appendChild(img);
                           tags[l].childNodes[0].src = row[k];
@@ -123,7 +68,7 @@
                     } else {
                       l = 0;
                       while(l < tags.length){
-                        if(tags[l].id == tag_id){
+                        if(tags[l].attributes.getNamedItem("saver_id").nodeValue == tag_id){
                           var iframe = document.createElement("iframe");
                           tags[l].appendChild(iframe);
                           tags[l].childNodes[0].src = row[k];
@@ -152,31 +97,14 @@
   </div>
 
   <div>
-    <button class="clipboard-btn" data-clipboard-action="copy" data-clipboard-target="#clip-this">Copy</button>
-    <a href="/">Link A New Spreadsheet</a>
+    <%= link_to "Copy", copy_spreadsheets_path, remote: true, class: "clipboard-btn", data: { clipboard_action: 'copy',clipboard_target: "#clip-this" } %>
   </div>
 </div>
 
 
-<script>
-  function SelectText(element) {
-  var doc = document,
-    text = doc.getElementById(element),
-    range, selection;
-  if (doc.body.createTextRange) {
-    range = document.body.createTextRange();
-    range.moveToElementText(text);
-    range.select();
-  } else if (window.getSelection) {
-    selection = window.getSelection();
-    range = document.createRange();
-    range.selectNodeContents(text);
-    selection.removeAllRanges();
-    selection.addRange(range);
-  }
-}
-
-document.getElementById('js-pack').addEventListener('click', function() {
-  SelectText('js-pack');
-});
-</script>
+ 
+<!-- <script>
+  document.getElementsByClassName('clipboard-btn').addEventListener('click', function() {
+   $('.clipboard-btn').popover({content: "123321"});
+  });
+</script> -->
