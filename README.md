@@ -23,9 +23,12 @@ In progress:<br>
   6. 改善使用者體驗（完成）<br>
   7. 目前 JS 文件內指定特定 XML tag的方法是透過id，希望可以改成別的屬性名稱（完成）<br>
 
-
-
-
+Template
+---
+Spreadsheet template: <br>
+https://docs.google.com/spreadsheets/d/1FpSxr20uj3UgcgoW1vE-dyFUOFuQEMVMVbRpoE15TII/edit#gid=0<br>
+Your may have different tabs.<br>
+In addition, your data can be formed in columns or rows.
 
 Quick Start
 ---
