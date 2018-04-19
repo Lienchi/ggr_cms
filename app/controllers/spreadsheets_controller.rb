@@ -23,7 +23,7 @@ class SpreadsheetsController < ApplicationController
     @category_arr = []
     session["js"].each do |key, value|
       value.each do |k,v|
-        @xml_name_arr << session["js"][key][k]["name"]
+        @xml_name_arr << session["js"][key][k]["xml_name"]
         @col_range_arr << session["js"][key][k]["range"]
         @category_arr << session["js"][key][k]["type"]
       end
